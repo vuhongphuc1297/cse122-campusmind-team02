@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Mục Dịch Vụ & AI-1 Navigator | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 02) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-8">
+
+    <!-- Page Title & Subtitle -->
+    <div class="space-y-1">
+      <div class="flex items-center gap-2 text-xs font-bold text-sage">
+        <span>CỔNG THÔNG TIN KHÁCH & SINH VIÊN</span>
+        <span>·</span>
+        <span>SLIDE 03</span>
+      </div>
+      <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Danh mục dịch vụ hỗ trợ sinh viên</h1>
+      <p class="text-xs sm:text-sm text-ink/70">Khám phá các hình thức tham vấn tâm lý 1-1, workshop rèn luyện cảm xúc và chuỗi bài tập tự thực hành</p>
+    </div>
+
+    <!-- BANNER KÍCH HOẠT AI-1 SUPPORT NAVIGATOR -->
+    <section class="bg-gradient-to-r from-amber-50 to-orange-50/40 border border-amber-200/80 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-sm">
+      <div class="max-w-2xl space-y-3 relative z-10">
+        <div class="inline-flex items-center gap-1.5 badge-ai">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+          <span>AI-1 Support Navigator · Bạn chưa biết bắt đầu từ đâu?</span>
+        </div>
+        <h2 class="font-serif text-xl sm:text-2xl font-bold text-ink">
+          Để trợ lý AI gợi ý dịch vụ phù hợp nhất với cảm xúc của bạn
+        </h2>
+        <p class="text-xs text-ink/75 leading-relaxed">
+          Chỉ với 4 câu hỏi trắc nghiệm ngắn gọn (áp lực thi cử, lo âu, mất ngủ), hệ thống sẽ phân loại nhu cầu và đề xuất chuyên gia phù hợp (không chẩn đoán bệnh y khoa).
+        </p>
+        <div class="pt-1">
+          <button onclick="openQuizModal()" class="btn-amber text-xs shadow-sm">
+            <span class="text-ink font-bold">✦</span>
+            <span>Làm trắc nghiệm định hướng ngay (45 giây) →</span>
+          </button>
+        </div>
+      </div>
+      <div class="absolute right-6 -bottom-6 opacity-10 hidden sm:block pointer-events-none">
+        <i data-lucide="compass" class="w-48 h-48 text-amber-ai"></i>
+      </div>
+    </section>
+
+    <!-- THANH TÌM KIẾM & BỘ LỌC DANH MỤC (Search & Filter Chips) -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <!-- Search Input -->
+        <div class="relative flex-1 max-w-md">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-ink/40"></i>
+          <input type="text" id="service-search-input" oninput="filterServices()" placeholder="Tìm theo tên dịch vụ, chuyên gia, từ khóa cảm xúc..."
+                 class="w-full bg-white border border-card-border rounded-xl pl-10 pr-4 py-2.5 text-xs text-ink focus:outline-none focus:border-sage shadow-sm">
+        </div>
+        <div class="text-xs text-ink/60 font-medium" id="services-count-text">
+          Đang hiển thị 12 dịch vụ
+        </div>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="category-chips">
+        <button onclick="setCategoryFilter('all', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-sage-tint text-sage-deep border-sage">
+          Tất cả dịch vụ
+        </button>
+        <button onclick="setCategoryFilter('personal', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Tư vấn cá nhân 1-1
+        </button>
+        <button onclick="setCategoryFilter('workshop', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Workshop nhóm
+        </button>
+        <button onclick="setCategoryFilter('study', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Hỗ trợ học tập
+        </button>
+        <button onclick="setCategoryFilter('sleep', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Giấc ngủ & Thư giãn
+        </button>
+        <button onclick="setCategoryFilter('relationship', this)" class="category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Mối quan hệ
+        </button>
+        <button onclick="resetServiceFilters()" id="btn-reset-filters" class="hidden px-3 py-1.5 rounded-full text-xs font-semibold border border-clay-alert/30 bg-clay-alert/10 text-clay-alert hover:bg-clay-alert/20 transition-all flex items-center gap-1 shrink-0">
+          <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+          <span>Xóa bộ lọc</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- LƯỚI 12 THẺ DỊCH VỤ -->
+    <section>
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= MODAL AI-1 SUPPORT NAVIGATOR WIZARD (Mockup 04, 05, 06, 07) ================= -->
+  <div id="quiz-modal" class="modal-backdrop hidden" onclick="if(event.target === this) closeQuizModal()">
+    <div class="modal-content relative p-6 sm:p-7">
+      <!-- Close Button -->
+      <button onclick="closeQuizModal()" class="absolute right-5 top-5 text-ink/40 hover:text-ink">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Quiz Header -->
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-6 h-6 rounded-md bg-amber-100 text-amber-800 flex items-center justify-center">
+          <i data-lucide="compass" class="w-3.5 h-3.5 text-amber-ai"></i>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-800">AI-1 Support Navigator</span>
+      </div>
+      <p class="text-xs text-ink/60 mb-4">Trắc nghiệm định hướng sàng lọc nhu cầu chăm sóc sức khỏe tinh thần</p>
+
+      <!-- Step Content Container -->
+      <div id="quiz-body">
+        <!-- Dynamic Step Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/ai-engine.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    let currentCategory = 'all';
+    let quizCurrentStep = 1;
+    let quizAnswers = {};
+    let forceFailTest = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('services');
+      CampusCommon.renderFooter();
+      renderServicesList();
+
+      // Check URL query param to open quiz directly
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('openQuiz') === 'true') {
+        openQuizModal();
+      }
+    });
+
+    // Render Services Grid
+    function renderServicesList() {
+      const container = document.getElementById('services-grid');
+      const allServices = CampusData.getServices();
+      const query = (document.getElementById('service-search-input')?.value || '').toLowerCase().trim();
+
+      const filtered = allServices.filter(s => {
+        const matchCategory = currentCategory === 'all' || s.category === currentCategory;
+        const matchQuery = !query || 
+          s.title.toLowerCase().includes(query) || 
+          s.description.toLowerCase().includes(query) || 
+          s.counselorName.toLowerCase().includes(query) ||
+          s.categoryName.toLowerCase().includes(query);
+        return matchCategory && matchQuery;
+      });
+
+      const countText = document.getElementById('services-count-text');
+      if (countText) countText.textContent = `Đang hiển thị ${filtered.length} dịch vụ`;
+
+      const resetBtn = document.getElementById('btn-reset-filters');
+      if (resetBtn) {
+        if (query || currentCategory !== 'all') {
+          resetBtn.classList.remove('hidden');
+        } else {
+          resetBtn.classList.add('hidden');
+        }
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center bg-white rounded-2xl border border-card-border p-6 space-y-2">
+            <i data-lucide="search-x" class="w-8 h-8 mx-auto text-ink/40 mb-2"></i>
+            <h4 class="font-serif font-bold text-base text-ink mb-1">Không tìm thấy dịch vụ phù hợp</h4>
+            <p class="text-xs text-ink/60">Thử tìm kiếm với từ khóa khác hoặc bấm nút bên dưới để khôi phục danh sách.</p>
+            <div class="pt-2">
+              <button onclick="resetServiceFilters()" class="btn-secondary text-xs inline-flex items-center gap-1.5 shadow-sm">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>Xóa bộ lọc & Xem tất cả</span>
+              </button>
+            </div>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = filtered.map(service => {
+        const isActive = service.status === 'active';
+        return `
+          <div class="interactive-card p-5 flex flex-col justify-between">
+            <div class="space-y-3">
+              <!-- Header Badges -->
+              <div class="flex items-center justify-between gap-2">
+                <span class="badge-sage">${CampusCommon.escapeHTML(service.categoryName)}</span>
+                <span class="status-pill ${isActive ? 'status-confirmed' : 'status-archived'}">
+                  <span class="status-dot"></span>
+                  <span>${isActive ? 'Hoạt động' : 'Tạm ẩn'}</span>
+                </span>
+              </div>
+
+              <!-- Title & Desc -->
+              <div>
+                <h3 class="font-serif font-bold text-base text-ink mb-1 line-clamp-1">${CampusCommon.escapeHTML(service.title)}</h3>
+                <p class="text-xs text-ink/70 line-clamp-2 leading-relaxed">${CampusCommon.escapeHTML(service.description)}</p>
+              </div>
+
+              <!-- Metadata Info -->
+              <div class="space-y-1.5 pt-2 border-t border-card-border/60 text-[11px] text-ink/75">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-sage shrink-0"></i>
+                  <span>${CampusCommon.escapeHTML(service.duration)}</span>
+                  <span class="text-card-border">|</span>
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage shrink-0"></i>
+                  <span class="truncate">${CampusCommon.escapeHTML(service.location)}</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="user-check" class="w-3.5 h-3.5 text-sage shrink-0"></i>
+                  <span class="font-semibold text-ink">${CampusCommon.escapeHTML(service.counselorName)}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="pt-4 mt-3 border-t border-card-border/60 flex items-center justify-between">
+              <span class="text-[11px] text-ink/50">${CampusCommon.escapeHTML(service.id)}</span>
+              <a href="student-booking.html?serviceId=${service.id}" class="btn-primary text-xs !py-1.5 !px-3 shadow-sm">
+                <span>Đặt lịch ngay</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function resetServiceFilters() {
+      const input = document.getElementById('service-search-input');
+      if (input) input.value = '';
+      currentCategory = 'all';
+      document.querySelectorAll('.category-chip').forEach(btn => {
+        btn.className = 'category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all';
+      });
+      const firstChip = document.querySelector('#category-chips button');
+      if (firstChip) firstChip.className = 'category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-sage-tint text-sage-deep border-sage';
+      const resetBtn = document.getElementById('btn-reset-filters');
+      if (resetBtn) resetBtn.classList.add('hidden');
+      renderServicesList();
+    }
+
+    function setCategoryFilter(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.category-chip').forEach(c => {
+        c.className = 'category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all';
+      });
+      btn.className = 'category-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-sage-tint text-sage-deep border-sage';
+      renderServicesList();
+    }
+
+    function filterServices() {
+      renderServicesList();
+    }
+
+    // ================= AI-1 QUIZ MODAL LOGIC =================
+    function openQuizModal() {
+      quizCurrentStep = 1;
+      quizAnswers = {};
+      forceFailTest = false;
+      document.getElementById('quiz-modal').classList.remove('hidden');
+      renderQuizStep();
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    function renderQuizStep() {
+      const bodyEl = document.getElementById('quiz-body');
+      const questions = CampusAI.AI1_QUESTIONS;
+      const currentQ = questions[quizCurrentStep - 1];
+
+      // Progress percentage
+      const progressPct = (quizCurrentStep / 4) * 100;
+
+      bodyEl.innerHTML = `
+        <!-- Progress Bar -->
+        <div class="space-y-1.5 mb-5">
+          <div class="flex items-center justify-between text-[11px] font-semibold text-ink/70">
+            <span>Tiến trình: Câu hỏi ${quizCurrentStep} / 4</span>
+            <span class="text-amber-700 font-bold">✦ Định hướng nhu cầu · ${progressPct}%</span>
+          </div>
+          <div class="w-full bg-sage-tint h-1.5 rounded-full overflow-hidden">
+            <div class="bg-amber-ai h-full rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+          </div>
+        </div>
+
+        <!-- Question Title -->
+        <div class="space-y-1 mb-4">
+          <h3 class="font-serif font-bold text-base sm:text-lg text-ink leading-snug">${currentQ.title}</h3>
+          <p class="text-xs text-ink/60">${currentQ.subtitle}</p>
+        </div>
+
+        <!-- Options List -->
+        <div class="space-y-2.5 mb-5">
+          ${currentQ.options.map(opt => {
+            const isSelected = quizAnswers[quizCurrentStep] === opt.id;
+            return `
+              <div onclick="selectQuizOption('${opt.id}')"
+                   class="p-3.5 rounded-xl border text-xs cursor-pointer transition-all flex items-center justify-between ${isSelected ? 'border-sage bg-sage-tint/60 text-sage-deep font-semibold shadow-sm' : 'border-card-border bg-white hover:border-card-border-hover text-ink/90'}">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${isSelected ? 'border-sage bg-sage text-white' : 'border-card-border'}">
+                    ${isSelected ? '●' : ''}
+                  </span>
+                  <span>${opt.text}</span>
+                </div>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-ink/30 shrink-0"></i>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Ethics Notice & Test Switcher -->
+        <div class="bg-amber-50/60 border border-amber-200/60 rounded-xl p-2.5 text-[11px] text-amber-900 flex items-center justify-between gap-2 mb-5">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="info" class="w-3.5 h-3.5 text-amber-ai shrink-0"></i>
+            <span>Cam kết: Hệ thống điều phối học đường, không chẩn đoán y khoa.</span>
+          </div>
+          <label class="flex items-center gap-1.5 text-[10px] text-ink/70 font-bold cursor-pointer shrink-0">
+            <input type="checkbox" onchange="forceFailTest = this.checked" class="rounded text-amber-ai">
+            <span>Test ngoại lệ AI</span>
+          </label>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-between pt-3 border-t border-card-border">
+          <button onclick="${quizCurrentStep > 1 ? 'quizPrevStep()' : 'closeQuizModal()'}" class="btn-secondary text-xs !py-1.5 !px-3">
+            ${quizCurrentStep > 1 ? '← Quay lại' : 'Hủy bỏ'}
+          </button>
+          <button onclick="quizNextStep()" class="btn-primary text-xs !py-1.5 !px-4" ${!quizAnswers[quizCurrentStep] ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
+            <span>${quizCurrentStep === 4 ? '✦ Hoàn thành & Phân tích →' : 'Tiếp tục câu ' + (quizCurrentStep + 1) + ' →'}</span>
+          </button>
+        </div>
+      `;
+
+      lucide.createIcons();
+    }
+
+    function selectQuizOption(optId) {
+      quizAnswers[quizCurrentStep] = optId;
+      renderQuizStep();
+    }
+
+    function quizPrevStep() {
+      if (quizCurrentStep > 1) {
+        quizCurrentStep--;
+        renderQuizStep();
+      }
+    }
+
+    function quizNextStep() {
+      if (!quizAnswers[quizCurrentStep]) {
+        CampusCommon.showToast('Vui lòng chọn một câu trả lời để tiếp tục', 'error');
+        return;
+      }
+
+      if (quizCurrentStep < 4) {
+        quizCurrentStep++;
+        renderQuizStep();
+      } else {
+        // Step 4 Complete -> Proceed to AI Processing State
+        renderQuizProcessing();
+      }
+    }
+
+    // Step 2: Processing state (Mockup 05)
+    function renderQuizProcessing() {
+      const bodyEl = document.getElementById('quiz-body');
+      bodyEl.innerHTML = `
+        <div class="py-12 text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto text-amber-ai animate-spin">
+            <i data-lucide="loader-2" class="w-8 h-8"></i>
+          </div>
+          <div class="space-y-1">
+            <h3 class="font-serif font-bold text-lg text-ink">AI-1 đang trích xuất từ khóa tâm lý...</h3>
+            <p class="text-xs text-ink/70">Phân loại nhu cầu theo ma trận Wellbeing trường Đại học Thủy Lợi</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 text-[11px] text-sage font-semibold">
+            <span class="inline-block w-2 h-2 rounded-full bg-sage animate-ping"></span>
+            <span>Khớp dịch vụ & Lịch khả dụng của chuyên viên</span>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+
+      // Run AI Evaluation
+      CampusAI.evaluateNavigator(quizAnswers, forceFailTest).then(result => {
+        if (result.success) {
+          renderQuizResult(result);
+        } else {
+          renderQuizFallback(result);
+        }
+      });
+    }
+
+    // Step 3: Success Result & Explainability (Mockup 06)
+    function renderQuizResult(result) {
+      const bodyEl = document.getElementById('quiz-body');
+      bodyEl.innerHTML = `
+        <div class="space-y-4">
+          <!-- Main Result Box -->
+          <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="badge-ai">✦ Đề xuất tối ưu nhất</span>
+              <span class="text-xs font-semibold text-emerald-800">Độ tin cậy: ${result.confidence}</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sage-deep">${result.serviceName}</h3>
+            <p class="text-xs text-ink/80 leading-relaxed">${result.summary}</p>
+            <div class="text-[11px] text-ink/70 pt-2 border-t border-emerald-200/60 flex items-center gap-3">
+              <span>⏰ Thời lượng: <b>${result.duration}</b></span>
+              <span>·</span>
+              <span>🧑‍⚕️ Chuyên gia: <b>${result.counselorName}</b></span>
+            </div>
+          </div>
+
+          <!-- Explainability Box -->
+          <div class="bg-paper rounded-2xl border border-card-border p-4 space-y-2">
+            <h4 class="font-bold text-xs text-ink flex items-center gap-1.5">
+              <i data-lucide="help-circle" class="w-3.5 h-3.5 text-sage"></i>
+              <span>Vì sao bạn nhận được khuyến nghị này? (Explainable AI)</span>
+            </h4>
+            <ul class="space-y-1 text-xs text-ink/80 pl-4 list-disc">
+              ${result.explainability.map(e => `<li>${e}</li>`).join('')}
+            </ul>
+            <p class="text-[10px] text-ink/50 italic pt-1">* ${result.ethicsNotice}</p>
+          </div>
+
+          <!-- Human-in-the-loop Actions -->
+          <div class="pt-3 border-t border-card-border flex flex-col sm:flex-row items-stretch sm:items-center gap-2 justify-between">
+            <button onclick="openQuizModal()" class="btn-secondary text-xs !py-2">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Làm lại trắc nghiệm</span>
+            </button>
+            <a href="student-booking.html?serviceId=${result.serviceId}" class="btn-primary text-xs !py-2 shadow-sm text-center">
+              <span>Chấp nhận & Đặt lịch ngay →</span>
+            </a>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // Step 4: Fallback & Exception State (Mockup 07)
+    function renderQuizFallback(result) {
+      const bodyEl = document.getElementById('quiz-body');
+      bodyEl.innerHTML = `
+        <div class="space-y-4">
+          <!-- Fallback Alert Box -->
+          <div class="bg-rose-50 border border-clay-alert/30 rounded-2xl p-5 space-y-2">
+            <div class="flex items-center gap-2 text-clay-alert font-bold text-xs">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+              <span>${result.title}</span>
+            </div>
+            <p class="text-xs text-ink/80 leading-relaxed">${result.message}</p>
+          </div>
+
+          <!-- 2 Safe Exits -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl border border-amber-200 bg-amber-50/50 space-y-1">
+              <span class="font-bold text-amber-900 block">📞 Hỗ trợ trực tiếp khẩn cấp</span>
+              <p class="text-[11px] text-ink/70">Hotline 24/7: <b>${result.hotline}</b></p>
+              <p class="text-[11px] text-ink/70">${result.room}</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-card-border bg-white space-y-1">
+              <span class="font-bold text-ink block">📋 Tự duyệt danh bạ thủ công</span>
+              <p class="text-[11px] text-ink/70">Bạn có thể tự do chọn trong 12 dịch vụ tư vấn sẵn có mà không qua sàng lọc AI.</p>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pt-3 border-t border-card-border flex items-center justify-between gap-2">
+            <button onclick="openQuizModal()" class="btn-secondary text-xs !py-2">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Thử làm lại quiz</span>
+            </button>
+            <button onclick="closeQuizModal()" class="btn-primary text-xs !py-2">
+              <span>Tự duyệt 12 dịch vụ thủ công</span>
+            </button>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
