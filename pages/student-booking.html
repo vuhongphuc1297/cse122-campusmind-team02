@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt Lịch Tư Vấn Tâm Lý 4 Bước | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Wizard Container (Matching Mockup 12) -->
+  <main class="max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-8">
+
+    <!-- Title & Badge -->
+    <div class="space-y-1">
+      <div class="flex items-center gap-2 text-xs font-bold text-sage">
+        <span>QUY TRÌNH ĐẶT LỊCH HẸN BẢO MẬT</span>
+        <span>·</span>
+        <span>SLIDE 07</span>
+      </div>
+      <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Đăng ký lịch tư vấn tâm lý học đường</h1>
+      <p class="text-xs sm:text-sm text-ink/70">Quy trình 4 bước trực quan, bảo mật danh tính tuyệt đối và kiểm tra hợp lệ thông tin tại chỗ</p>
+    </div>
+
+    <!-- 4-STEP PROGRESS BAR (WCAG Compliant) -->
+    <section class="bg-white rounded-2xl p-4 sm:p-5 border border-card-border shadow-sm">
+      <div class="grid grid-cols-4 gap-2 sm:gap-4 relative text-center">
+        <!-- Step 1 -->
+        <div id="step-nav-1" class="step-indicator flex flex-col items-center gap-1.5">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-sage text-white shadow-sm">
+            1
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-ink hidden sm:block">Chọn dịch vụ</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-nav-2" class="step-indicator flex flex-col items-center gap-1.5">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-paper border border-card-border text-ink/50">
+            2
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-ink/50 hidden sm:block">Khung giờ</span>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-nav-3" class="step-indicator flex flex-col items-center gap-1.5">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-paper border border-card-border text-ink/50">
+            3
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-ink/50 hidden sm:block">Lý do & AI-2</span>
+        </div>
+
+        <!-- Step 4 -->
+        <div id="step-nav-4" class="step-indicator flex flex-col items-center gap-1.5">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-paper border border-card-border text-ink/50">
+            4
+          </div>
+          <span class="text-[10px] sm:text-xs font-semibold text-ink/50 hidden sm:block">Xác nhận</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM WIZARD CONTAINER -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-card-border shadow-sm">
+
+      <!-- ================= STEP 1: CHỌN DỊCH VỤ ================= -->
+      <div id="step-1" class="wizard-step space-y-5">
+        <div>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-ink">Bước 1: Chọn dịch vụ hỗ trợ phù hợp</h2>
+          <p class="text-xs text-ink/70">Chọn 1 hình thức tham vấn bạn mong muốn tham gia</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="wizard-services-list">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Validation Error Message -->
+        <div id="step1-error" class="hidden text-xs text-clay-alert flex items-center gap-1.5 pt-1">
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span>Vui lòng chọn 1 dịch vụ để tiếp tục.</span>
+        </div>
+
+        <div class="pt-4 border-t border-card-border flex justify-end">
+          <button onclick="goToStep(2)" class="btn-primary text-xs !py-2 !px-5 shadow-sm">
+            <span>Tiếp tục: Chọn chuyên viên & giờ hẹn →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 2: CHỌN CHUYÊN VIÊN & KHUNG GIỜ ================= -->
+      <div id="step-2" class="wizard-step hidden space-y-6">
+        <div>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-ink">Bước 2: Chọn chuyên gia & Khung giờ còn trống</h2>
+          <p class="text-xs text-ink/70">Khung giờ được cập nhật thời gian thực theo lịch trực phòng tư vấn</p>
+        </div>
+
+        <!-- 1. Chọn chuyên gia -->
+        <div class="space-y-2">
+          <label class="font-bold text-xs text-ink block">1. Chọn chuyên viên tham vấn:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="wizard-counselors-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- 2. Chọn ngày -->
+        <div class="space-y-2">
+          <label class="font-bold text-xs text-ink block">2. Chọn ngày tham vấn:</label>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2" id="wizard-dates-list">
+            <button type="button" onclick="selectBookingDate('2026-10-23', 'Thứ Năm (23/10)', this)" class="date-btn p-2.5 rounded-xl border-2 border-sage bg-sage-tint/40 text-center text-xs font-semibold text-sage-deep">
+              <span class="block text-[10px] text-ink/60">Thứ Năm</span>
+              <span class="font-bold">23/10</span>
+            </button>
+            <button type="button" onclick="selectBookingDate('2026-10-24', 'Thứ Sáu (24/10)', this)" class="date-btn p-2.5 rounded-xl border border-card-border bg-white text-center text-xs font-semibold text-ink hover:bg-paper">
+              <span class="block text-[10px] text-ink/60">Thứ Sáu</span>
+              <span class="font-bold">24/10</span>
+            </button>
+            <button type="button" onclick="selectBookingDate('2026-10-26', 'Thứ Hai (26/10)', this)" class="date-btn p-2.5 rounded-xl border border-card-border bg-white text-center text-xs font-semibold text-ink hover:bg-paper">
+              <span class="block text-[10px] text-ink/60">Thứ Hai</span>
+              <span class="font-bold">26/10</span>
+            </button>
+            <button type="button" onclick="selectBookingDate('2026-10-27', 'Thứ Ba (27/10)', this)" class="date-btn p-2.5 rounded-xl border border-card-border bg-white text-center text-xs font-semibold text-ink hover:bg-paper">
+              <span class="block text-[10px] text-ink/60">Thứ Ba</span>
+              <span class="font-bold">27/10</span>
+            </button>
+            <button type="button" onclick="selectBookingDate('2026-10-29', 'Thứ Năm (29/10)', this)" class="date-btn p-2.5 rounded-xl border border-card-border bg-white text-center text-xs font-semibold text-ink hover:bg-paper">
+              <span class="block text-[10px] text-ink/60">Thứ Năm</span>
+              <span class="font-bold">29/10</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Chọn khung giờ trống (Available slots) -->
+        <div class="space-y-2">
+          <label class="font-bold text-xs text-ink block">3. Chọn khung giờ còn trống (Available Slots):</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="wizard-slots-list">
+            <button type="button" onclick="selectBookingSlot('08:30 - 09:15', this)" class="slot-btn p-3 rounded-xl border border-card-border bg-white text-xs font-semibold text-ink hover:border-sage">
+              08:30 - 09:15
+            </button>
+            <button type="button" disabled class="slot-btn p-3 rounded-xl border border-card-border bg-paper text-xs font-semibold text-ink/40 cursor-not-allowed">
+              09:30 - 10:15 (Đã kín)
+            </button>
+            <button type="button" onclick="selectBookingSlot('14:00 - 14:45', this)" class="slot-btn p-3 rounded-xl border-2 border-sage bg-sage-tint/40 text-xs font-bold text-sage-deep">
+              14:00 - 14:45
+            </button>
+            <button type="button" onclick="selectBookingSlot('15:00 - 15:45', this)" class="slot-btn p-3 rounded-xl border border-card-border bg-white text-xs font-semibold text-ink hover:border-sage">
+              15:00 - 15:45
+            </button>
+          </div>
+        </div>
+
+        <!-- Summary note -->
+        <div class="p-3 bg-paper rounded-xl border border-card-border text-xs text-ink/80 flex items-center gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-sage shrink-0"></i>
+          <span>Bạn đang chọn: <b id="step2-summary-text">TS. Nguyễn Minh Hà lúc 14:00 - 14:45 Thứ Năm (23/10/2026)</b></span>
+        </div>
+
+        <!-- Validation Error Message -->
+        <div id="step2-error" class="hidden text-xs text-clay-alert flex items-center gap-1.5 pt-1">
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span>Vui lòng chọn đầy đủ chuyên viên, ngày và khung giờ hẹn.</span>
+        </div>
+
+        <div class="pt-4 border-t border-card-border flex items-center justify-between">
+          <button onclick="goToStep(1)" class="btn-secondary text-xs !py-2 !px-4">← Quay lại bước 1</button>
+          <button onclick="goToStep(3)" class="btn-primary text-xs !py-2 !px-5 shadow-sm">
+            <span>Tiếp tục: Nhập lý do & thông tin →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 3: NHẬP LÝ DO & GỢI Ý AI-2 ================= -->
+      <div id="step-3" class="wizard-step hidden space-y-6">
+        <div>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-ink">Bước 3: Thông tin tham vấn & Gợi ý bài tập AI-2</h2>
+          <p class="text-xs text-ink/70">Mô tả ngắn gọn về tình trạng để chuyên viên chuẩn bị tốt nhất trước buổi gặp</p>
+        </div>
+
+        <!-- Reason input -->
+        <div class="space-y-1.5">
+          <label class="font-bold text-xs text-ink flex items-center justify-between">
+            <span>Mô tả lý do bạn tìm kiếm sự hỗ trợ: *</span>
+            <span class="text-[10px] text-ink/50" id="reason-char-count">Tối thiểu 15 ký tự</span>
+          </label>
+          <textarea id="booking-reason-input" rows="4" oninput="validateReasonInput()"
+                    placeholder="Ví dụ: Dạo này em cảm thấy áp lực lớn vì thi cuối kỳ và đồ án, thường xuyên mất ngủ và cảm giác khó thở khi ngồi vào bàn học..."
+                    class="w-full bg-white border border-card-border rounded-xl p-3 text-xs text-ink focus:outline-none focus:border-sage shadow-sm leading-relaxed"></textarea>
+        </div>
+
+        <!-- Format: In person vs Online -->
+        <div class="space-y-2">
+          <label class="font-bold text-xs text-ink block">Hình thức tham vấn:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="p-3 rounded-xl border border-sage bg-sage-tint/30 flex items-center gap-3 cursor-pointer">
+              <input type="radio" name="booking-format" value="in-person" checked class="text-sage focus:ring-sage">
+              <div>
+                <span class="font-bold text-xs text-ink block">Gặp trực tiếp tại trường</span>
+                <span class="text-[10px] text-ink/60">Phòng Tham vấn P.204 Nhà A1</span>
+              </div>
+            </label>
+            <label class="p-3 rounded-xl border border-card-border bg-white flex items-center gap-3 cursor-pointer hover:bg-paper">
+              <input type="radio" name="booking-format" value="online" class="text-sage focus:ring-sage">
+              <div>
+                <span class="font-bold text-xs text-ink block">Trực tuyến có bảo mật</span>
+                <span class="text-[10px] text-ink/60">Qua đường dẫn Zoom / MS Teams riêng tư</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- AI-2 CROSS-RECOMMENDATION CARD -->
+        <div id="ai2-recommendation-card" class="hidden bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-2 transition-all">
+          <div class="flex items-center gap-1.5">
+            <span class="badge-ai">✦ AI-2 Gợi ý chuẩn bị tâm lý</span>
+          </div>
+          <p id="ai2-recommendation-text" class="text-xs text-ink/80 leading-relaxed">
+            Dựa trên lý do bạn vừa nhập, trợ lý AI đề xuất bạn nên thực hành <b>"Kỹ thuật thở 4-7-8"</b> trong 5 phút trước khi vào phòng gặp chuyên viên để giải tỏa bớt nhịp thở dồn dập.
+          </p>
+          <div class="pt-1">
+            <a id="ai2-recommendation-link" href="visitor-resource-library.html" target="_blank" class="text-[11px] font-bold text-amber-800 hover:underline flex items-center gap-1">
+              <span>Xem hướng dẫn bài tập tại đây ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Anonymous Checkbox -->
+        <label class="flex items-center gap-2 cursor-pointer text-xs text-ink/80 pt-1">
+          <input type="checkbox" id="booking-anonymous-checkbox" class="rounded text-sage focus:ring-sage">
+          <span>Tôi muốn giữ ẩn danh họ tên trên báo cáo chung (Chỉ hiển thị mã sinh viên định danh)</span>
+        </label>
+
+        <!-- Validation Error Message -->
+        <div id="step3-error" class="hidden text-xs text-clay-alert flex items-center gap-1.5 pt-1">
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span>Vui lòng nhập lý do tham vấn tối thiểu 15 ký tự.</span>
+        </div>
+
+        <div class="pt-4 border-t border-card-border flex items-center justify-between">
+          <button onclick="goToStep(2)" class="btn-secondary text-xs !py-2 !px-4">← Quay lại bước 2</button>
+          <button onclick="goToStep(4)" class="btn-primary text-xs !py-2 !px-5 shadow-sm">
+            <span>Tiếp tục: Xem lại & Xác nhận →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 4: XÁC NHẬN HOÀN TẤT ================= -->
+      <div id="step-4" class="wizard-step hidden space-y-6">
+        <div>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-ink">Bước 4: Kiểm tra thông tin & Xác nhận đăng ký</h2>
+          <p class="text-xs text-ink/70">Vui lòng rà soát lại toàn bộ thông tin trước khi gửi yêu cầu vào hàng đợi của chuyên viên</p>
+        </div>
+
+        <!-- Summary Card -->
+        <div class="bg-paper rounded-2xl p-5 border border-card-border space-y-3.5 text-xs">
+          <div class="flex items-center justify-between pb-3 border-b border-card-border/60">
+            <span class="text-ink/60">Dịch vụ đã chọn:</span>
+            <span class="font-bold text-sage-deep text-sm" id="confirm-service-name">Tư vấn tâm lý cá nhân 1-1</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-ink/60">Chuyên gia phụ trách:</span>
+            <span class="font-bold text-ink" id="confirm-counselor-name">TS. Nguyễn Minh Hà</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-ink/60">Thời gian buổi hẹn:</span>
+            <span class="font-bold text-ink" id="confirm-datetime">14:00 - 14:45 · Thứ Năm (23/10/2026)</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-ink/60">Hình thức tham vấn:</span>
+            <span class="font-bold text-ink" id="confirm-format">Gặp trực tiếp tại Phòng P.204 Nhà A1</span>
+          </div>
+          <div class="flex items-start justify-between pt-2 border-t border-card-border/60">
+            <span class="text-ink/60 shrink-0">Lý do chia sẻ:</span>
+            <span class="font-medium text-ink/80 text-right max-w-sm" id="confirm-reason">...</span>
+          </div>
+        </div>
+
+        <!-- Ethics & Confirmation Notice -->
+        <div class="p-3.5 bg-emerald-50/60 border border-emerald-200/80 rounded-xl text-xs text-sage-deep flex items-start gap-2.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-sage shrink-0 mt-0.5"></i>
+          <p class="leading-relaxed">
+            Yêu cầu của bạn sẽ được gửi thẳng vào hàng chờ duyệt của chuyên viên với trạng thái <b>"Đang chờ duyệt" (Pending)</b>. Bạn sẽ nhận được thông báo ngay khi chuyên viên tiếp nhận.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-card-border flex items-center justify-between">
+          <button onclick="goToStep(3)" class="btn-secondary text-xs !py-2 !px-4">← Quay lại sửa</button>
+          <button id="btn-submit-booking" onclick="submitBooking()" class="btn-primary text-xs !py-2 !px-6 shadow-md">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Hoàn tất & Gửi yêu cầu đặt lịch</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    let currentStep = 1;
+    let selectedServiceId = 'SRV-01';
+    let selectedCounselorId = 'CSL-01';
+    let selectedDate = '2026-10-23';
+    let selectedDateDisplay = 'Thứ Năm (23/10/2026)';
+    let selectedSlot = '14:00 - 14:45';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Guard RBAC
+      CampusAuth.enforceGuard();
+
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('booking');
+      CampusCommon.renderFooter();
+
+      // Check URL parameters for preset serviceId
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('serviceId')) {
+        selectedServiceId = urlParams.get('serviceId');
+      }
+      if (urlParams.get('counselorId')) {
+        selectedCounselorId = urlParams.get('counselorId');
+      }
+
+      initStep1Services();
+      initStep2Counselors();
+    });
+
+    // Step 1: Render Services
+    function initStep1Services() {
+      const services = CampusData.getServices().filter(s => s.status === 'active');
+      const container = document.getElementById('wizard-services-list');
+
+      container.innerHTML = services.map(s => {
+        const isSelected = s.id === selectedServiceId;
+        return `
+          <div onclick="selectWizardService('${s.id}')"
+               class="p-4 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${isSelected ? 'border-2 border-sage bg-sage-tint/40 shadow-sm' : 'border-card-border bg-white hover:border-card-border-hover'}">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="badge-sage">${s.categoryName}</span>
+                <span class="text-[10px] text-ink/50">${s.duration}</span>
+              </div>
+              <h4 class="font-serif font-bold text-sm text-ink">${s.title}</h4>
+              <p class="text-[11px] text-ink/70 line-clamp-2">${s.description}</p>
+            </div>
+            <div class="pt-2 text-[10px] text-sage font-semibold flex items-center gap-1">
+              <span>Chuyên viên: ${s.counselorName}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function selectWizardService(sId) {
+      selectedServiceId = sId;
+      initStep1Services();
+    }
+
+    // Step 2: Render Counselors
+    function initStep2Counselors() {
+      const counselors = CampusData.getCounselors();
+      const container = document.getElementById('wizard-counselors-list');
+
+      container.innerHTML = counselors.map(c => {
+        const isSelected = c.id === selectedCounselorId;
+        return `
+          <div onclick="selectWizardCounselor('${c.id}')"
+               class="p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center gap-3 ${isSelected ? 'border-2 border-sage bg-sage-tint/40 shadow-sm' : 'border-card-border bg-white hover:border-card-border-hover'}">
+            <img src="${c.avatar}" alt="${c.name}" class="w-12 h-12 rounded-xl object-cover shrink-0">
+            <div class="min-w-0 flex-1 space-y-0.5">
+              <h4 class="font-serif font-bold text-xs text-ink truncate">${c.name}</h4>
+              <p class="text-[10px] text-sage font-medium truncate">${c.title}</p>
+              <p class="text-[10px] text-ink/60 truncate">📍 ${c.room}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function selectWizardCounselor(cId) {
+      selectedCounselorId = cId;
+      initStep2Counselors();
+      updateStep2Summary();
+    }
+
+    function selectBookingDate(dateStr, displayStr, btn) {
+      selectedDate = dateStr;
+      selectedDateDisplay = displayStr;
+      document.querySelectorAll('.date-btn').forEach(b => {
+        b.className = 'date-btn p-2.5 rounded-xl border border-card-border bg-white text-center text-xs font-semibold text-ink hover:bg-paper';
+      });
+      btn.className = 'date-btn p-2.5 rounded-xl border-2 border-sage bg-sage-tint/40 text-center text-xs font-semibold text-sage-deep';
+      updateStep2Summary();
+    }
+
+    function selectBookingSlot(slotStr, btn) {
+      selectedSlot = slotStr;
+      document.querySelectorAll('.slot-btn').forEach(b => {
+        if (!b.disabled) {
+          b.className = 'slot-btn p-3 rounded-xl border border-card-border bg-white text-xs font-semibold text-ink hover:border-sage';
+        }
+      });
+      btn.className = 'slot-btn p-3 rounded-xl border-2 border-sage bg-sage-tint/40 text-xs font-bold text-sage-deep';
+      updateStep2Summary();
+    }
+
+    function updateStep2Summary() {
+      const c = CampusData.getCounselors().find(item => item.id === selectedCounselorId);
+      const name = c ? c.name : 'Chuyên viên';
+      document.getElementById('step2-summary-text').textContent = `${name} lúc ${selectedSlot} ${selectedDateDisplay}`;
+    }
+
+    function validateReasonInput() {
+      const text = document.getElementById('booking-reason-input').value.trim();
+      const countEl = document.getElementById('reason-char-count');
+      const aiCard = document.getElementById('ai2-recommendation-card');
+      const aiText = document.getElementById('ai2-recommendation-text');
+      const aiLink = document.getElementById('ai2-recommendation-link');
+
+      countEl.textContent = `${text.length} ký tự (tối thiểu 15)`;
+      if (text.length >= 15) {
+        countEl.className = 'text-[10px] text-sage font-bold';
+        if (aiCard) {
+          aiCard.classList.remove('hidden');
+          const lower = text.toLowerCase();
+          if (lower.includes('ngủ') || lower.includes('thức') || lower.includes('mệt') || lower.includes('kiệt sức')) {
+            aiText.innerHTML = 'Dựa trên chia sẻ về giấc ngủ & sự căng thẳng, trợ lý AI đề xuất bạn tham khảo cẩm nang <b>"Vệ sinh giấc ngủ & Thư giãn sâu"</b> để hồi phục thể trạng.';
+            aiLink.innerHTML = '<span>Xem hướng dẫn vệ sinh giấc ngủ tại đây ↗</span>';
+          } else if (lower.includes('bạn') || lower.includes('người yêu') || lower.includes('gia đình') || lower.includes('mâu thuẫn') || lower.includes('chia tay')) {
+            aiText.innerHTML = 'Dựa trên vấn đề mối quan hệ và cảm xúc bạn vừa chia sẻ, trợ lý AI đề xuất bạn tìm hiểu bài viết <b>"Kỹ năng lắng nghe & Thiết lập ranh giới cảm xúc lành mạnh"</b>.';
+            aiLink.innerHTML = '<span>Xem cẩm nang mối quan hệ tại đây ↗</span>';
+          } else {
+            aiText.innerHTML = 'Dựa trên lý do bạn vừa nhập, trợ lý AI đề xuất bạn nên thực hành <b>"Kỹ thuật thở 4-7-8"</b> trong 5 phút trước khi vào phòng gặp chuyên viên để giải tỏa bớt nhịp thở dồn dập.';
+            aiLink.innerHTML = '<span>Xem hướng dẫn thở 4-7-8 tại đây ↗</span>';
+          }
+        }
+      } else {
+        countEl.className = 'text-[10px] text-ink/50';
+        if (aiCard) {
+          aiCard.classList.add('hidden');
+        }
+      }
+    }
+
+    // Wizard Navigation Logic
+    function goToStep(stepNum) {
+      // Validate Step 1
+      if (stepNum > 1 && !selectedServiceId) {
+        document.getElementById('step1-error').classList.remove('hidden');
+        return;
+      }
+
+      // Validate Step 2
+      if (stepNum > 2 && (!selectedCounselorId || !selectedSlot || !selectedDate)) {
+        document.getElementById('step2-error').classList.remove('hidden');
+        return;
+      }
+
+      // Validate Step 3
+      if (stepNum > 3) {
+        const reason = document.getElementById('booking-reason-input').value.trim();
+        if (reason.length < 15) {
+          document.getElementById('step3-error').classList.remove('hidden');
+          return;
+        }
+        document.getElementById('step3-error').classList.add('hidden');
+
+        // Populate Step 4 Confirmation
+        const service = CampusData.getServices().find(s => s.id === selectedServiceId);
+        const counselor = CampusData.getCounselors().find(c => c.id === selectedCounselorId);
+        const formatRadio = document.querySelector('input[name="booking-format"]:checked');
+
+        document.getElementById('confirm-service-name').textContent = service ? service.title : 'Tư vấn';
+        document.getElementById('confirm-counselor-name').textContent = counselor ? counselor.name : 'Chuyên gia';
+        document.getElementById('confirm-datetime').textContent = `${selectedSlot} · ${selectedDateDisplay}`;
+        document.getElementById('confirm-format').textContent = formatRadio.value === 'in-person' ? 'Gặp trực tiếp tại Phòng P.204 Nhà A1' : 'Tư vấn trực tuyến Zoom bảo mật';
+        document.getElementById('confirm-reason').textContent = `"${reason}"`;
+      }
+
+      // Hide all steps
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`step-${i}`).classList.add('hidden');
+        const nav = document.getElementById(`step-nav-${i}`);
+        const circle = nav.querySelector('div');
+        const label = nav.querySelector('span');
+
+        if (i < stepNum) {
+          // Completed step
+          circle.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-sage-tint text-sage-deep';
+          circle.innerHTML = '✓';
+          if (label) label.className = 'text-[10px] sm:text-xs font-semibold text-sage-deep hidden sm:block';
+        } else if (i === stepNum) {
+          // Active step
+          circle.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-sage text-white shadow-sm';
+          circle.textContent = i;
+          if (label) label.className = 'text-[10px] sm:text-xs font-bold text-ink hidden sm:block';
+        } else {
+          // Pending step
+          circle.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs bg-paper border border-card-border text-ink/50';
+          circle.textContent = i;
+          if (label) label.className = 'text-[10px] sm:text-xs font-semibold text-ink/50 hidden sm:block';
+        }
+      }
+
+      document.getElementById(`step-${stepNum}`).classList.remove('hidden');
+      currentStep = stepNum;
+      if (stepNum === 3) {
+        validateReasonInput();
+      }
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    // Submit Booking to LocalStorage
+    function submitBooking() {
+      const btn = document.getElementById('btn-submit-booking');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Đang ghi nhận vào hệ thống...</span>';
+      lucide.createIcons();
+
+      const user = CampusAuth.getUser();
+      const service = CampusData.getServices().find(s => s.id === selectedServiceId);
+      const counselor = CampusData.getCounselors().find(c => c.id === selectedCounselorId);
+      const reason = document.getElementById('booking-reason-input').value.trim();
+      const isAnon = document.getElementById('booking-anonymous-checkbox').checked;
+      const formatRadio = document.querySelector('input[name="booking-format"]:checked');
+
+      const newId = `APT-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      const newAppointment = {
+        id: newId,
+        serviceId: selectedServiceId,
+        serviceName: service ? service.title : 'Tư vấn cá nhân 1-1',
+        studentId: user.code || '2551060661',
+        studentName: user.name || 'Vũ Hồng Phúc',
+        studentClass: user.faculty || 'K64 - CNTT',
+        studentPhone: user.phone || '0987.654.321',
+        studentEmail: user.email || 'vuphucpa@gmail.com',
+        counselorId: selectedCounselorId,
+        counselorName: counselor ? counselor.name : 'TS. Nguyễn Minh Hà',
+        date: selectedDate,
+        dateDisplay: selectedDateDisplay,
+        timeSlot: selectedSlot,
+        type: formatRadio.value,
+        typeDisplay: formatRadio.value === 'in-person' ? 'Trực tiếp tại Phòng P.204 Nhà A1' : 'Trực tuyến Zoom/Teams',
+        status: 'pending',
+        statusDisplay: 'Đang chờ duyệt',
+        reason: reason,
+        isAnonymous: isAnon,
+        createdAt: new Date().toISOString()
+      };
+
+      setTimeout(() => {
+        CampusData.saveAppointment(newAppointment);
+        CampusCommon.showToast(`Đặt lịch hẹn thành công mã #${newId}! Đã chuyển vào hàng chờ chuyên viên.`, 'success');
+        setTimeout(() => {
+          window.location.href = `student-appointments.html?highlight=${newId}`;
+        }, 800);
+      }, 700);
+    }
+  </script>
+</body>
+</html>
