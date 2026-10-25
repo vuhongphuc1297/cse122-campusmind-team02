@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hàng Chờ Duyệt Ca Tư Vấn | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 19) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-6">
+
+    <!-- Top Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="badge-role bg-sky-100 text-sky-800">🧑‍⚕️ Phân hệ Chuyên viên Tư vấn</span>
+          <span class="text-xs text-ink/60">TS. Nguyễn Minh Hà</span>
+        </div>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Hàng chờ tiếp nhận & Phê duyệt ca tư vấn</h1>
+        <p class="text-xs sm:text-sm text-ink/70">Xem xét hồ sơ sinh viên, tiếp nhận ca tham vấn và điều phối kế hoạch hỗ trợ tâm lý học đường</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="CampusCommon.exportToCSV('hang-cho-tu-van.csv', CampusData.getAppointments().filter(a => a.status === 'pending'))" class="btn-secondary text-xs shadow-sm" title="Xuất danh sách hàng chờ ra file CSV">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Xuất CSV</span>
+        </button>
+        <a href="counselor-session-note.html" class="btn-primary text-xs shadow-sm">
+          <i data-lucide="file-edit" class="w-4 h-4"></i>
+          <span>Ghi chú ca hiện tại (AI-3)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 STATS CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+          <i data-lucide="inbox" class="w-5 h-5 text-amber-ai"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Ca đang chờ duyệt</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink" id="pending-count-display">3 ca</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center shrink-0">
+          <i data-lucide="calendar-check" class="w-5 h-5 text-sage"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Ca đã duyệt hôm nay</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink">1 ca (14:00)</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center shrink-0">
+          <i data-lucide="clock" class="w-5 h-5 text-sky-info"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Thời gian phản hồi TB</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink">2.4 giờ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUEUE LIST SECTION -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="font-serif text-lg font-bold text-ink">Danh sách sinh viên gửi yêu cầu hỗ trợ</h2>
+        <span class="text-xs text-ink/60">Sắp xếp theo thứ tự ưu tiên thời gian</span>
+      </div>
+
+      <div id="queue-container" class="space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: TỪ CHỐI KÈM LÝ DO -->
+  <div id="decline-modal" class="modal-backdrop hidden" onclick="if(event.target === this) closeDeclineModal()">
+    <div class="modal-content p-6 space-y-4">
+      <div class="flex items-center gap-2 text-clay-alert">
+        <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+        <h3 class="font-serif font-bold text-lg text-ink">Từ chối ca tư vấn</h3>
+      </div>
+      <p class="text-xs text-ink/70">Vui lòng cung cấp lý do rõ ràng và mang tính xây dựng để hệ thống tự động hướng dẫn sinh viên đặt lại khung giờ khác.</p>
+      
+      <div class="space-y-1.5 text-xs">
+        <label class="font-bold text-ink">Lý do từ chối:</label>
+        <select id="decline-reason-select" class="w-full bg-paper border border-card-border rounded-xl p-2.5 mb-2">
+          <option value="Trùng lịch hội chẩn chuyên môn đột xuất của chuyên gia">Trùng lịch hội chẩn chuyên môn đột xuất</option>
+          <option value="Khung giờ này đã được phân bổ cho ca can thiệp khẩn cấp">Khung giờ này đã kín ca can thiệp khẩn cấp</option>
+          <option value="Đề xuất chuyển sang chuyên gia phù hợp hơn">Đề xuất sinh viên chuyển sang chuyên gia phù hợp hơn</option>
+          <option value="other">Lý do khác (Nhập bên dưới)</option>
+        </select>
+        <textarea id="decline-reason-text" rows="2" placeholder="Ghi chú thêm cho sinh viên..."
+                  class="w-full bg-paper border border-card-border rounded-xl p-2.5"></textarea>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-card-border">
+        <button onclick="closeDeclineModal()" class="btn-secondary text-xs !py-1.5">Hủy</button>
+        <button onclick="confirmDeclineAppointment()" class="btn-danger text-xs !py-1.5">Xác nhận từ chối</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    let activeDeclineId = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Guard RBAC
+      CampusAuth.enforceGuard();
+
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('queue');
+      CampusCommon.renderFooter();
+      renderQueueList();
+    });
+
+    function renderQueueList() {
+      const container = document.getElementById('queue-container');
+      const all = CampusData.getAppointments();
+
+      // Get pending requests
+      const pendingList = all.filter(a => a.status === 'pending');
+      document.getElementById('pending-count-display').textContent = `${pendingList.length} ca`;
+
+      if (pendingList.length === 0) {
+        container.innerHTML = `
+          <div class="py-16 text-center bg-white rounded-3xl border border-card-border p-8 space-y-3">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 text-sage flex items-center justify-center mx-auto">
+              <i data-lucide="check-check" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-serif font-bold text-lg text-ink">Hàng chờ đã được xử lý hết!</h3>
+            <p class="text-xs text-ink/60 max-w-sm mx-auto">Hiện tại không còn yêu cầu tư vấn nào đang chờ duyệt. Bạn có thể xem lịch làm việc tuần hoặc soạn thảo ghi chú ca đã tiếp nhận.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = pendingList.map(item => `
+        <div class="interactive-card p-5 sm:p-6 space-y-4">
+          <!-- Card Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-card-border">
+            <div class="flex items-center gap-2.5">
+              <span class="font-mono text-xs font-bold text-ink/60">#${CampusCommon.escapeHTML(item.id)}</span>
+              <span class="status-pill status-pending">
+                <span class="status-dot"></span>
+                <span>Chờ phê duyệt</span>
+              </span>
+              <span class="text-xs text-ink/40">·</span>
+              <span class="text-xs font-bold text-sage-deep">${CampusCommon.escapeHTML(item.serviceName)}</span>
+            </div>
+            <span class="text-[11px] text-ink/50">Gửi lúc: ${new Date(item.createdAt).toLocaleDateString('vi-VN')}</span>
+          </div>
+
+          <!-- Student Profile & Booking Details -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+            <!-- Student Mini Info -->
+            <div class="md:col-span-4 bg-paper rounded-2xl p-4 border border-card-border space-y-2 text-xs">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-sage text-white font-bold text-xs flex items-center justify-center shrink-0">
+                  ${CampusCommon.escapeHTML(item.studentName ? item.studentName.charAt(0) : 'S')}
+                </div>
+                <div>
+                  <h4 class="font-bold text-ink">${CampusCommon.escapeHTML(item.studentName)}</h4>
+                  <span class="text-[10px] text-ink/60 block">${CampusCommon.escapeHTML(item.studentClass)}</span>
+                </div>
+              </div>
+              <div class="space-y-1 text-[11px] text-ink/70 pt-2 border-t border-card-border/60">
+                <p>Mã SV: <b>${CampusCommon.escapeHTML(item.studentId)}</b></p>
+                <p>Email: <b>${CampusCommon.escapeHTML(item.studentEmail)}</b></p>
+                <p>SĐT: <b>${CampusCommon.escapeHTML(item.studentPhone)}</b></p>
+              </div>
+            </div>
+
+            <!-- Consultation details & reason -->
+            <div class="md:col-span-8 space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-ink/80">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="clock" class="w-4 h-4 text-sage"></i>
+                  <span>Khung giờ: <b>${CampusCommon.escapeHTML(item.timeSlot)}</b></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="calendar" class="w-4 h-4 text-sage"></i>
+                  <span>Ngày hẹn: <b>${CampusCommon.escapeHTML(item.dateDisplay)}</b></span>
+                </div>
+              </div>
+
+              <!-- Reason Box -->
+              <div class="p-3 bg-paper rounded-xl border border-card-border text-xs text-ink/80 space-y-1">
+                <span class="font-bold text-[11px] text-ink/60 block">Mô tả lý do từ sinh viên:</span>
+                <p class="italic leading-relaxed">"${CampusCommon.escapeHTML(item.reason)}"</p>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="flex items-center justify-end gap-2 pt-2">
+                <button onclick="openDeclineModal('${item.id}')" class="btn-secondary text-xs !py-1.5 !px-3 text-clay-alert hover:border-clay-alert">
+                  <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                  <span>Từ chối ca</span>
+                </button>
+                <button onclick="approveAppointment('${item.id}')" class="btn-primary text-xs !py-1.5 !px-4 shadow-sm">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  <span>Tiếp nhận & Xác nhận lịch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    // Approve Appointment (Status -> confirmed)
+    function approveAppointment(aptId) {
+      CampusData.updateAppointmentStatus(aptId, 'confirmed');
+      CampusCommon.showToast(`Đã tiếp nhận và xác nhận ca tư vấn #${aptId} thành công!`, 'success');
+      renderQueueList();
+    }
+
+    // Decline Appointment Modal
+    function openDeclineModal(aptId) {
+      activeDeclineId = aptId;
+      document.getElementById('decline-modal').classList.remove('hidden');
+    }
+
+    function closeDeclineModal() {
+      document.getElementById('decline-modal').classList.add('hidden');
+    }
+
+    function confirmDeclineAppointment() {
+      if (!activeDeclineId) return;
+      const selectVal = document.getElementById('decline-reason-select').value;
+      const extraText = document.getElementById('decline-reason-text').value.trim();
+      const reason = extraText ? `${selectVal}. Ghi chú: ${extraText}` : selectVal;
+
+      CampusData.updateAppointmentStatus(activeDeclineId, 'cancelled', reason);
+      closeDeclineModal();
+      CampusCommon.showToast(`Đã từ chối ca hẹn #${activeDeclineId}. Hệ thống đã gửi thông báo đến sinh viên.`, 'info');
+      renderQueueList();
+    }
+  </script>
+</body>
+</html>
