@@ -250,16 +250,16 @@
         </div>
 
         <!-- AI-2 CROSS-RECOMMENDATION CARD -->
-        <div id="ai2-recommendation-card" class="hidden bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-2 transition-all">
+        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-2">
           <div class="flex items-center gap-1.5">
             <span class="badge-ai">✦ AI-2 Gợi ý chuẩn bị tâm lý</span>
           </div>
-          <p id="ai2-recommendation-text" class="text-xs text-ink/80 leading-relaxed">
+          <p class="text-xs text-ink/80 leading-relaxed">
             Dựa trên lý do bạn vừa nhập, trợ lý AI đề xuất bạn nên thực hành <b>"Kỹ thuật thở 4-7-8"</b> trong 5 phút trước khi vào phòng gặp chuyên viên để giải tỏa bớt nhịp thở dồn dập.
           </p>
           <div class="pt-1">
-            <a id="ai2-recommendation-link" href="visitor-resource-library.html" target="_blank" class="text-[11px] font-bold text-amber-800 hover:underline flex items-center gap-1">
-              <span>Xem hướng dẫn bài tập tại đây ↗</span>
+            <a href="visitor-resource-library.html" target="_blank" class="text-[11px] font-bold text-amber-800 hover:underline flex items-center gap-1">
+              <span>Xem hướng dẫn thở 4-7-8 tại đây ↗</span>
             </a>
           </div>
         </div>
@@ -462,32 +462,11 @@
     function validateReasonInput() {
       const text = document.getElementById('booking-reason-input').value.trim();
       const countEl = document.getElementById('reason-char-count');
-      const aiCard = document.getElementById('ai2-recommendation-card');
-      const aiText = document.getElementById('ai2-recommendation-text');
-      const aiLink = document.getElementById('ai2-recommendation-link');
-
       countEl.textContent = `${text.length} ký tự (tối thiểu 15)`;
       if (text.length >= 15) {
         countEl.className = 'text-[10px] text-sage font-bold';
-        if (aiCard) {
-          aiCard.classList.remove('hidden');
-          const lower = text.toLowerCase();
-          if (lower.includes('ngủ') || lower.includes('thức') || lower.includes('mệt') || lower.includes('kiệt sức')) {
-            aiText.innerHTML = 'Dựa trên chia sẻ về giấc ngủ & sự căng thẳng, trợ lý AI đề xuất bạn tham khảo cẩm nang <b>"Vệ sinh giấc ngủ & Thư giãn sâu"</b> để hồi phục thể trạng.';
-            aiLink.innerHTML = '<span>Xem hướng dẫn vệ sinh giấc ngủ tại đây ↗</span>';
-          } else if (lower.includes('bạn') || lower.includes('người yêu') || lower.includes('gia đình') || lower.includes('mâu thuẫn') || lower.includes('chia tay')) {
-            aiText.innerHTML = 'Dựa trên vấn đề mối quan hệ và cảm xúc bạn vừa chia sẻ, trợ lý AI đề xuất bạn tìm hiểu bài viết <b>"Kỹ năng lắng nghe & Thiết lập ranh giới cảm xúc lành mạnh"</b>.';
-            aiLink.innerHTML = '<span>Xem cẩm nang mối quan hệ tại đây ↗</span>';
-          } else {
-            aiText.innerHTML = 'Dựa trên lý do bạn vừa nhập, trợ lý AI đề xuất bạn nên thực hành <b>"Kỹ thuật thở 4-7-8"</b> trong 5 phút trước khi vào phòng gặp chuyên viên để giải tỏa bớt nhịp thở dồn dập.';
-            aiLink.innerHTML = '<span>Xem hướng dẫn thở 4-7-8 tại đây ↗</span>';
-          }
-        }
       } else {
         countEl.className = 'text-[10px] text-ink/50';
-        if (aiCard) {
-          aiCard.classList.add('hidden');
-        }
       }
     }
 
@@ -553,9 +532,6 @@
 
       document.getElementById(`step-${stepNum}`).classList.remove('hidden');
       currentStep = stepNum;
-      if (stepNum === 3) {
-        validateReasonInput();
-      }
       window.scrollTo({ top: 100, behavior: 'smooth' });
     }
 
