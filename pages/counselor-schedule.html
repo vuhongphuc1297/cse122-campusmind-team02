@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Lịch Làm Việc Chuyên Viên | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 18) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-6">
+
+    <!-- Title Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="badge-role bg-sky-100 text-sky-800">🧑‍⚕️ Chuyên viên tư vấn: TS. Nguyễn Minh Hà</span>
+          <span class="text-xs text-ink/60">Phòng P.204 Nhà A1</span>
+        </div>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Quản lý quỹ thời gian & Lịch trực tuần</h1>
+        <p class="text-xs sm:text-sm text-ink/70">Thiết lập khung giờ khả dụng, đóng/mở ca trực và đồng bộ thời gian thực cho sinh viên đặt hẹn</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="openAddSlotModal()" class="btn-primary text-xs shadow-sm">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Thêm khung giờ mới</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3 SUMMARY METRICS -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center shrink-0">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block">Khung giờ mở tuần này</span>
+          <span class="font-serif font-bold text-xl text-ink">18 khung giờ</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+          <i data-lucide="users" class="w-5 h-5 text-amber-ai"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block">Sinh viên đã đăng ký</span>
+          <span class="font-serif font-bold text-xl text-ink">6 ca hẹn</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-2xl border border-card-border shadow-sm flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center shrink-0">
+          <i data-lucide="activity" class="w-5 h-5 text-sky-info"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block">Tỷ lệ sử dụng phòng</span>
+          <span class="font-serif font-bold text-xl text-ink">75.0% công suất</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKLY SCHEDULE MATRIX (THỨ 2 ĐẾN THỨ 7) -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-card-border shadow-sm space-y-6">
+      <div class="flex items-center justify-between pb-4 border-b border-card-border">
+        <div class="flex items-center gap-3">
+          <button class="btn-secondary text-xs !py-1 !px-2.5">← Tuần trước</button>
+          <span class="font-serif font-bold text-base text-ink">Tuần 42 (19/10/2026 - 25/10/2026)</span>
+          <button class="btn-secondary text-xs !py-1 !px-2.5">Tuần sau →</button>
+        </div>
+        <span class="text-xs text-sage font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+          <span>Đang đồng bộ trực tuyến</span>
+        </span>
+      </div>
+
+      <!-- Days Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="schedule-days-container">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: THÊM KHUNG GIỜ MỚI -->
+  <div id="add-slot-modal" class="modal-backdrop hidden" onclick="if(event.target === this) closeAddSlotModal()">
+    <div class="modal-content p-6 space-y-4">
+      <div class="flex items-center justify-between pb-2 border-b border-card-border">
+        <h3 class="font-serif font-bold text-lg text-ink">Thêm khung giờ tư vấn mới</h3>
+        <button onclick="closeAddSlotModal()" class="text-ink/40 hover:text-ink"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="font-bold text-ink block mb-1">Chọn ngày:</label>
+          <select id="new-slot-day" class="w-full bg-paper border border-card-border rounded-xl p-2.5">
+            <option value="Thứ 2">Thứ Hai (20/10)</option>
+            <option value="Thứ 3">Thứ Ba (21/10)</option>
+            <option value="Thứ 4">Thứ Tư (22/10)</option>
+            <option value="Thứ 5">Thứ Năm (23/10)</option>
+            <option value="Thứ 6">Thứ Sáu (24/10)</option>
+            <option value="Thứ 7">Thứ Bảy (25/10)</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="font-bold text-ink block mb-1">Giờ bắt đầu:</label>
+            <input type="text" id="new-slot-start" value="16:30" class="w-full bg-paper border border-card-border rounded-xl p-2.5">
+          </div>
+          <div>
+            <label class="font-bold text-ink block mb-1">Giờ kết thúc:</label>
+            <input type="text" id="new-slot-end" value="17:15" class="w-full bg-paper border border-card-border rounded-xl p-2.5">
+          </div>
+        </div>
+        <div>
+          <label class="font-bold text-ink block mb-1">Địa điểm:</label>
+          <input type="text" id="new-slot-location" value="Phòng P.204 Nhà A1" class="w-full bg-paper border border-card-border rounded-xl p-2.5">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-card-border">
+        <button onclick="closeAddSlotModal()" class="btn-secondary text-xs !py-1.5">Hủy</button>
+        <button onclick="confirmAddSlot()" class="btn-primary text-xs !py-1.5">Lưu khung giờ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    const DAYS_DATA = [
+      { day: 'Thứ Hai', date: '20/10', slots: [
+        { time: '08:30 - 09:15', status: 'available', student: null },
+        { time: '10:00 - 10:45', status: 'available', student: null },
+        { time: '14:00 - 14:45', status: 'booked', student: 'Trần Vũ Hoàng (K65)' }
+      ]},
+      { day: 'Thứ Ba', date: '21/10', slots: [
+        { time: '09:00 - 09:45', status: 'available', student: null },
+        { time: '14:00 - 14:45', status: 'booked', student: 'Hoàng Minh Châu (K66)' },
+        { time: '15:15 - 16:00', status: 'available', student: null }
+      ]},
+      { day: 'Thứ Tư', date: '22/10', slots: [
+        { time: 'Cả ngày', status: 'locked', student: 'Hội chẩn chuyên môn & Nghiên cứu' }
+      ]},
+      { day: 'Thứ Năm', date: '23/10', isToday: true, slots: [
+        { time: '08:30 - 09:15', status: 'locked', student: 'Khóa ca bận (Họp khoa)' },
+        { time: '14:00 - 14:45', status: 'booked', student: 'Vũ Hồng Phúc (#APT-1042)' },
+        { time: '15:15 - 16:00', status: 'available', student: null }
+      ]},
+      { day: 'Thứ Sáu', date: '24/10', slots: [
+        { time: '09:00 - 09:45', status: 'available', student: null },
+        { time: '10:15 - 11:00', status: 'available', student: null },
+        { time: '14:30 - 15:15', status: 'available', student: null }
+      ]},
+      { day: 'Thứ Bảy', date: '25/10', slots: [
+        { time: '08:30 - 09:15', status: 'available', student: null },
+        { time: '09:30 - 10:15', status: 'available', student: null }
+      ]}
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Guard RBAC
+      CampusAuth.enforceGuard();
+
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('schedule');
+      CampusCommon.renderFooter();
+      renderDaysSchedule();
+    });
+
+    function renderDaysSchedule() {
+      const container = document.getElementById('schedule-days-container');
+      container.innerHTML = DAYS_DATA.map(d => `
+        <div class="p-4 rounded-2xl border ${d.isToday ? 'border-2 border-sage bg-sage-tint/20' : 'border-card-border bg-paper/40'} space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-card-border">
+            <div>
+              <span class="font-bold text-xs text-ink block">${d.day}</span>
+              <span class="text-[10px] text-ink/60">${d.date}</span>
+            </div>
+            ${d.isToday ? '<span class="badge-sage !text-[10px]">Hôm nay</span>' : ''}
+          </div>
+
+          <div class="space-y-2">
+            ${d.slots.map(s => {
+              if (s.status === 'available') {
+                return `
+                  <div class="p-2.5 bg-white rounded-xl border border-card-border flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="status-dot bg-sage"></span>
+                      <span class="font-semibold text-ink">${s.time}</span>
+                    </div>
+                    <button onclick="toggleSlotLock(this)" class="text-[10px] text-ink/60 hover:text-clay-alert">Khóa slot</button>
+                  </div>
+                `;
+              } else if (s.status === 'booked') {
+                return `
+                  <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between text-xs">
+                    <div class="space-y-0.5">
+                      <div class="flex items-center gap-2">
+                        <span class="status-dot bg-amber-ai"></span>
+                        <span class="font-bold text-sage-deep">${s.time}</span>
+                      </div>
+                      <span class="text-[10px] text-ink/75 block pl-3.5">${s.student}</span>
+                    </div>
+                    <a href="counselor-session-note.html" class="text-[10px] font-bold text-sage hover:underline">Ghi chú →</a>
+                  </div>
+                `;
+              } else {
+                return `
+                  <div class="p-2 bg-card-border/40 rounded-xl text-xs text-ink/50 flex items-center gap-2">
+                    <i data-lucide="lock" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span class="text-[10px] truncate">${s.student}</span>
+                  </div>
+                `;
+              }
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function toggleSlotLock(btn) {
+      CampusCommon.showToast('Đã chuyển trạng thái khóa/mở khung giờ', 'info');
+      btn.parentElement.classList.toggle('opacity-50');
+    }
+
+    function openAddSlotModal() {
+      document.getElementById('add-slot-modal').classList.remove('hidden');
+    }
+
+    function closeAddSlotModal() {
+      document.getElementById('add-slot-modal').classList.add('hidden');
+    }
+
+    function confirmAddSlot() {
+      closeAddSlotModal();
+      CampusCommon.showToast('Đã thêm khung giờ làm việc mới thành công!', 'success');
+      setTimeout(() => renderDaysSchedule(), 200);
+    }
+  </script>
+</body>
+</html>

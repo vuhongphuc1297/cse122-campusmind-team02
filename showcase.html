@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusMind — Showcase Hub & 24 Mockups Viewer | BTL-02 CSE122</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Viewport frames */
+    .viewport-desktop {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .viewport-tablet {
+      width: 768px;
+      height: 92%;
+      max-height: 960px;
+      border: 8px solid #334155;
+      border-radius: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .viewport-mobile {
+      width: 390px;
+      height: 88%;
+      max-height: 844px;
+      border: 10px solid #1E293B;
+      border-radius: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-ink h-screen flex flex-col font-sans overflow-hidden">
+
+  <!-- ================= TOP SHOWCASE CONTROLLER TOOLBAR ================= -->
+  <header class="bg-sage-deep text-white text-xs px-4 py-2.5 border-b border-sage/40 z-50 shadow-md shrink-0">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Logo & BTL Title -->
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center gap-1.5 bg-sage px-2.5 py-1 rounded font-bold text-white tracking-wide shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+          BTL-02 · CSE122
+        </span>
+        <span class="text-white/40">|</span>
+        <span class="font-serif font-bold text-sm text-white tracking-tight">CampusMind Showcase Hub</span>
+      </div>
+
+      <!-- Center Controls: Screen Selector & Viewport Switcher -->
+      <div class="flex items-center gap-3">
+        <!-- Screen Selector -->
+        <div class="flex items-center gap-1.5">
+          <label for="showcase-screen-select" class="text-white/70 hidden md:inline">Màn hình:</label>
+          <select id="showcase-screen-select" onchange="loadScreen(this.value)"
+                  class="bg-black/40 text-white text-xs rounded-lg border border-white/20 px-3 py-1.5 focus:outline-none focus:border-amber-ai cursor-pointer">
+            <optgroup label="Nhóm 1: Khách & Giới thiệu">
+              <option value="index.html">01. Trang chủ giới thiệu & Hero TLU</option>
+              <option value="visitor-service-directory.html">02. Danh bạ dịch vụ & AI-1 Sàng lọc</option>
+              <option value="visitor-resource-library.html">08. Thư viện tài nguyên & AI-2 Recommender</option>
+              <option value="visitor-counselor-detail.html">09. Hồ sơ chuyên viên chi tiết & Lịch tuần</option>
+            </optgroup>
+            <optgroup label="Nhóm 2: Sinh viên (An - K64 CNTT)">
+              <option value="student-dashboard.html">10. Bảng điều khiển sinh viên (Dashboard)</option>
+              <option value="student-booking.html">12. Đặt lịch tư vấn Wizard 4 bước</option>
+              <option value="student-appointments.html">14. Quản lý lịch hẹn & Drawer chi tiết</option>
+            </optgroup>
+            <optgroup label="Nhóm 3: Chuyên viên tư vấn (TS. Minh Hà)">
+              <option value="counselor-appointment-queue.html">19. Hàng chờ tiếp nhận & Duyệt ca</option>
+              <option value="counselor-schedule.html">18. Quản lý lịch làm việc & Khung giờ trực</option>
+              <option value="counselor-session-note.html">20. Ghi chú ca tư vấn & Trợ lý AI-3</option>
+            </optgroup>
+            <optgroup label="Nhóm 4: Quản trị viên (Admin Đức)">
+              <option value="admin-dashboard.html">21. Bảng điều phối vận hành toàn trường</option>
+              <option value="admin-service-management.html">22. Quản lý danh mục dịch vụ CRUD</option>
+              <option value="admin-user-management.html">23. Quản lý người dùng & Phân quyền RBAC</option>
+            </optgroup>
+            <optgroup label="Nhóm 5: Xác thực & Trạng thái lỗi">
+              <option value="login.html">24. Đăng nhập & 1-Click Role Switch</option>
+              <option value="register.html">Đăng ký tài khoản sinh viên</option>
+              <option value="profile.html">Hồ sơ cá nhân & Cài đặt</option>
+              <option value="403.html">Lỗi 403 Forbidden (RBAC)</option>
+              <option value="404.html">Lỗi 404 Not Found</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- 3 Viewport Buttons -->
+        <div class="flex items-center gap-1 bg-black/40 p-1 rounded-lg border border-white/20">
+          <button onclick="setViewport('desktop', this)" title="Desktop 1440px" class="viewport-btn p-1.5 rounded text-white bg-sage transition-all">
+            <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="setViewport('tablet', this)" title="Tablet 768px" class="viewport-btn p-1.5 rounded text-white/70 hover:text-white transition-all">
+            <i data-lucide="tablet" class="w-3.5 h-3.5"></i>
+          </button>
+          <button onclick="setViewport('mobile', this)" title="Mobile 390px (iPhone)" class="viewport-btn p-1.5 rounded text-white/70 hover:text-white transition-all">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Controls: 1-Click Role Switch & Reset -->
+      <div class="flex items-center gap-2">
+        <!-- Role selector -->
+        <select id="showcase-role-select" onchange="switchRoleFromShowcase(this.value)"
+                class="bg-amber-ai text-ink font-bold text-xs rounded-lg px-2.5 py-1.5 border-none focus:outline-none cursor-pointer">
+          <option value="guest">👤 Khách (Guest)</option>
+          <option value="student" selected>🎓 Sinh viên (An)</option>
+          <option value="counselor">🧑‍⚕️ Chuyên viên (Hà)</option>
+          <option value="admin">🛡️ Quản trị (Admin)</option>
+        </select>
+
+        <!-- Direct Open Button -->
+        <a id="btn-open-tab" href="pages/student-dashboard.html" target="_blank" title="Mở trang hiện tại ở tab độc lập mới"
+           class="bg-white/10 hover:bg-white/20 text-white p-1.5 rounded-lg transition-all flex items-center gap-1 font-semibold">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span class="hidden xl:inline">Mở Tab riêng</span>
+        </a>
+
+        <!-- Reset Seed Data -->
+        <button onclick="CampusCommon.resetDataWithConfirm()" title="Khôi phục LocalStorage ban đầu" class="bg-white/10 hover:bg-rose-500/30 text-white p-1.5 rounded-lg transition-all">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN VIEWPORT CONTAINER ================= -->
+  <main class="flex-1 w-full bg-slate-950 flex items-center justify-center p-2 relative overflow-hidden">
+    <iframe id="showcase-iframe" src="pages/student-dashboard.html" class="viewport-desktop transition-all duration-300 shadow-2xl"></iframe>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/modules/data.js"></script>
+  <script src="js/modules/auth.js"></script>
+  <script src="js/modules/common.js"></script>
+  <script>
+    let currentViewport = 'desktop';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+
+    function loadScreen(url) {
+      const target = (url === 'index.html' || url === 'showcase.html') ? url : 'pages/' + url;
+      const iframe = document.getElementById('showcase-iframe');
+      const openBtn = document.getElementById('btn-open-tab');
+      iframe.src = target;
+      openBtn.href = target;
+    }
+
+    function setViewport(vp, btn) {
+      currentViewport = vp;
+      const iframe = document.getElementById('showcase-iframe');
+
+      document.querySelectorAll('.viewport-btn').forEach(b => {
+        b.className = 'viewport-btn p-1.5 rounded text-white/70 hover:text-white transition-all';
+      });
+      btn.className = 'viewport-btn p-1.5 rounded text-white bg-sage transition-all';
+
+      iframe.className = `viewport-${vp} transition-all duration-300 shadow-2xl`;
+    }
+
+    function switchRoleFromShowcase(role) {
+      CampusAuth.switchRole(role);
+      const iframe = document.getElementById('showcase-iframe');
+      iframe.contentWindow.location.reload();
+    }
+  </script>
+</body>
+</html>

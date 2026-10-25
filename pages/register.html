@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký Tài Khoản Sinh Viên | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans justify-between">
+
+  <!-- Header -->
+  <header class="py-4 px-6 max-w-6xl w-full mx-auto flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-sage-deep text-white flex items-center justify-center shadow-sm">
+        <i data-lucide="heart-handshake" class="w-4 h-4 text-emerald-300"></i>
+      </div>
+      <span class="font-serif font-bold text-base text-ink">CampusMind</span>
+    </a>
+    <a href="login.html" class="text-xs font-semibold text-ink/70 hover:text-sage flex items-center gap-1">
+      <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+      <span>Đã có tài khoản? Đăng nhập</span>
+    </a>
+  </header>
+
+  <!-- Main Card -->
+  <main class="flex-1 flex items-center justify-center p-4">
+    <div class="max-w-[480px] w-full bg-white rounded-3xl p-7 sm:p-8 border border-card-border shadow-xl space-y-6">
+
+      <div class="text-center space-y-1">
+        <h1 class="font-serif text-2xl font-bold text-ink">Đăng ký tài khoản Sinh viên</h1>
+        <p class="text-xs text-ink/65">Tạo tài khoản để quản lý lịch hẹn tham vấn và lưu bài tập cá nhân</p>
+      </div>
+
+      <form onsubmit="handleRegister(event)" class="space-y-3.5 text-xs">
+        <div>
+          <label class="font-bold text-ink block mb-1">Họ và tên đầy đủ: *</label>
+          <input type="text" id="reg-name" required placeholder="Ví dụ: Vũ Hồng Phúc"
+                 class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink focus:outline-none focus:border-sage">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-ink block mb-1">Mã sinh viên (10 số): *</label>
+            <input type="text" id="reg-code" required pattern="[0-9]{10}" placeholder="2551060661"
+                   class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink focus:outline-none focus:border-sage">
+          </div>
+          <div>
+            <label class="font-bold text-ink block mb-1">Khoa / Khóa học: *</label>
+            <select id="reg-faculty" class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink">
+              <option value="Khoa Công nghệ Thông tin (K64)">Khoa CNTT (K64)</option>
+              <option value="Khoa Kinh tế & Quản lý (K65)">Khoa Kinh tế (K65)</option>
+              <option value="Khoa Kỹ thuật Tài nguyên Nước (K66)">Khoa Kỹ thuật TN Nước (K66)</option>
+              <option value="Khoa Công trình (K64)">Khoa Công trình (K64)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-ink block mb-1">Email trường ĐH Thủy Lợi: *</label>
+          <input type="email" id="reg-email" required placeholder="vuphucpa@gmail.com"
+                 class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink focus:outline-none focus:border-sage">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-ink block mb-1">Mật khẩu: *</label>
+            <input type="password" id="reg-password" required minlength="6" placeholder="Tối thiểu 6 ký tự"
+                   class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink focus:outline-none focus:border-sage">
+          </div>
+          <div>
+            <label class="font-bold text-ink block mb-1">Nhập lại mật khẩu: *</label>
+            <input type="password" id="reg-confirm-password" required minlength="6" placeholder="Khớp mật khẩu"
+                   class="w-full bg-paper border border-card-border rounded-xl p-2.5 text-ink focus:outline-none focus:border-sage">
+          </div>
+        </div>
+
+        <!-- Privacy checkbox -->
+        <label class="flex items-start gap-2 cursor-pointer text-[11px] text-ink/75 pt-1">
+          <input type="checkbox" required class="rounded text-sage focus:ring-sage mt-0.5">
+          <span>Tôi đồng ý với cam kết bảo mật thông tin y tế học đường của ĐH Thủy Lợi.</span>
+        </label>
+
+        <button type="submit" class="btn-primary w-full text-xs !py-3 shadow-md">
+          <i data-lucide="user-plus" class="w-4 h-4"></i>
+          <span>Hoàn tất đăng ký & Đăng nhập ngay</span>
+        </button>
+      </form>
+
+      <div class="text-center text-xs text-ink/60 pt-2 border-t border-card-border">
+        Đã có tài khoản? <a href="login.html" class="font-bold text-sage hover:underline">Đăng nhập tại đây</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-4 text-center text-[11px] text-ink/50 border-t border-card-border/50">
+    CampusMind © 2026 · Hệ thống đăng ký tài khoản sinh viên TLU
+  </footer>
+
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const code = document.getElementById('reg-code').value.trim();
+      const faculty = document.getElementById('reg-faculty').value;
+      const email = document.getElementById('reg-email').value.trim().toLowerCase();
+      const pass = document.getElementById('reg-password').value;
+      const confirmPass = document.getElementById('reg-confirm-password').value;
+
+      if (pass !== confirmPass) {
+        CampusCommon.showToast('Mật khẩu nhập lại không khớp. Vui lòng kiểm tra lại.', 'error');
+        return;
+      }
+
+      const newUser = {
+        id: `USR-${Math.floor(10 + Math.random() * 90)}`,
+        username: code,
+        code,
+        name,
+        email,
+        role: 'student',
+        roleName: 'Sinh viên',
+        faculty,
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=240',
+        status: 'active',
+        joinedDate: new Date().toISOString().split('T')[0],
+        phone: '0987.654.321'
+      };
+
+      CampusData.saveUser(newUser);
+      CampusAuth.switchRole('student', 'student-dashboard.html');
+      CampusCommon.showToast(`Chào mừng ${name}! Đăng ký thành công.`, 'success');
+    }
+  </script>
+</body>
+</html>
