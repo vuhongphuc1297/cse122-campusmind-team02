@@ -1,0 +1,72 @@
+[
+  {
+    "id": "USR-01",
+    "username": "student",
+    "code": "2551060661",
+    "name": "Vũ Hồng Phúc",
+    "email": "vuphucpa@gmail.com",
+    "role": "student",
+    "roleName": "Sinh viên",
+    "faculty": "Khoa Công nghệ Thông tin (K64)",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=240",
+    "status": "active",
+    "joinedDate": "2024-09-15",
+    "phone": "0987.654.321"
+  },
+  {
+    "id": "USR-02",
+    "username": "counselor",
+    "code": "CSL-004",
+    "name": "TS. Nguyễn Minh Hà",
+    "email": "ha.minh@tlu.edu.vn",
+    "role": "counselor",
+    "roleName": "Chuyên viên tư vấn",
+    "faculty": "Phòng Tư vấn Tâm lý Học đường TLU",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=240",
+    "status": "active",
+    "joinedDate": "2022-01-10",
+    "phone": "024.3852.204"
+  },
+  {
+    "id": "USR-03",
+    "username": "admin",
+    "code": "ADM-001",
+    "name": "Nguyễn Minh Đức (Admin)",
+    "email": "admin@tlu.edu.vn",
+    "role": "admin",
+    "roleName": "Quản trị viên",
+    "faculty": "Ban Quản trị Hệ thống Wellbeing & CTSV",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=240",
+    "status": "active",
+    "joinedDate": "2021-08-01",
+    "phone": "024.3852.100"
+  },
+  {
+    "id": "USR-04",
+    "username": "guest",
+    "code": "GUEST-00",
+    "name": "Khách vãng lai (Chưa đăng nhập)",
+    "email": "guest@campusmind.tlu.edu.vn",
+    "role": "guest",
+    "roleName": "Khách",
+    "faculty": "Chưa xác định",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=240",
+    "status": "active",
+    "joinedDate": "2026-10-25",
+    "phone": "N/A"
+  },
+  {
+    "id": "USR-05",
+    "username": "nam.tran",
+    "code": "2151069988",
+    "name": "Trần Văn Nam",
+    "email": "nam.tran@tlu.edu.vn",
+    "role": "student",
+    "roleName": "Sinh viên",
+    "faculty": "Khoa Kinh tế & Quản lý (K63)",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=240",
+    "status": "suspended",
+    "joinedDate": "2023-08-20",
+    "phone": "0912.888.999"
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "CSL-01",
+    "name": "TS. Nguyễn Minh Hà",
+    "title": "Tiến sĩ Tâm lý học Lâm sàng",
+    "role": "Chuyên viên cao cấp & Điều phối viên Wellbeing",
+    "room": "Phòng P.204 Nhà A1 (Trường ĐH Thủy Lợi)",
+    "email": "ha.minh@tlu.edu.vn",
+    "phone": "024.3852.204",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=240",
+    "bio": "Hơn 12 năm kinh nghiệm trong tư vấn tâm lý học đường, chuyên sâu về can thiệp lo âu thi cử, trầm cảm nhẹ và liệu pháp nhận thức hành vi (CBT).",
+    "specialties": [
+      "Áp lực học tập & Thi cử",
+      "Rối loạn lo âu",
+      "Khủng hoảng hiện sinh",
+      "Vệ sinh giấc ngủ"
+    ],
+    "rating": 4.95,
+    "totalSessions": 420,
+    "availableDays": [
+      "Thứ 2",
+      "Thứ 3",
+      "Thứ 5",
+      "Thứ 6"
+    ]
+  },
+  {
+    "id": "CSL-02",
+    "name": "ThS. Lê Hoàng Long",
+    "title": "Thạc sĩ Tâm lý học Giáo dục",
+    "role": "Chuyên viên Tham vấn & Điều hành Workshop",
+    "room": "Phòng P.206 Nhà A1 (Trường ĐH Thủy Lợi)",
+    "email": "long.le@tlu.edu.vn",
+    "phone": "024.3852.206",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=240",
+    "bio": "Chuyên gia huấn luyện chánh niệm (Mindfulness) và phát triển kỹ năng tự điều hòa cảm xúc nhóm, từng công tác tại nhiều dự án sức khỏe tâm thần trẻ.",
+    "specialties": [
+      "Quản trị cảm xúc nhóm",
+      "Quản lý stress & Deadline",
+      "Kỹ thuật chánh niệm",
+      "Xung đột phòng trọ"
+    ],
+    "rating": 4.88,
+    "totalSessions": 310,
+    "availableDays": [
+      "Thứ 3",
+      "Thứ 4",
+      "Thứ 5",
+      "Thứ 7"
+    ]
+  },
+  {
+    "id": "CSL-03",
+    "name": "ThS. Đỗ Thu Thảo",
+    "title": "Thạc sĩ Công tác Xã hội & Tham vấn Tâm lý",
+    "role": "Chuyên viên Hỗ trợ Sinh viên Năm nhất",
+    "room": "Phòng P.205 Nhà A1 (Trường ĐH Thủy Lợi)",
+    "email": "thao.do@tlu.edu.vn",
+    "phone": "024.3852.205",
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=240",
+    "bio": "Tận tâm, thấu cảm, chuyên hỗ trợ sinh viên vượt qua rào cản giao tiếp, khủng hoảng mối quan hệ bạn bè, gia đình và thích nghi văn hóa học đường.",
+    "specialties": [
+      "Thích nghi năm nhất",
+      "Mối quan hệ & Tình cảm",
+      "Giao tiếp bất bạo động",
+      "Áp lực gia đình"
+    ],
+    "rating": 4.92,
+    "totalSessions": 265,
+    "availableDays": [
+      "Thứ 2",
+      "Thứ 4",
+      "Thứ 6"
+    ]
+  },
+  {
+    "id": "CSL-04",
+    "name": "PGS.TS. Trần Quốc Tuấn",
+    "title": "Phó Giáo sư, Bác sĩ Chuyên khoa Tâm thần",
+    "role": "Cố vấn chuyên môn & Can thiệp khẩn cấp TLU",
+    "room": "Phòng Tham vấn Y tế Nhà K1 TLU",
+    "email": "tuan.tran@tlu.edu.vn",
+    "phone": "024.3852.999",
+    "avatar": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=240",
+    "bio": "Cố vấn trưởng ban hỗ trợ tâm lý trường, chỉ đạo các ca can thiệp khủng hoảng khẩn cấp và kết nối mạng lưới bệnh viện tâm thần tuyến trung ương.",
+    "specialties": [
+      "Can thiệp khủng hoảng SOS",
+      "Rối loạn trầm cảm nặng",
+      "Sơ cứu tâm lý",
+      "Hội chẩn y khoa"
+    ],
+    "rating": 4.98,
+    "totalSessions": 540,
+    "availableDays": [
+      "Thứ 2",
+      "Thứ 5"
+    ]
+  }
+]

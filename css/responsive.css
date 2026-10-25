@@ -1,0 +1,62 @@
+/* ==========================================================================
+   🌿 CAMPUSMIND — RESPONSIVE & MOBILE-FIRST BREAKPOINTS EXTENSION
+   BTL-02: Điều Phối Hỗ Trợ Sức Khỏe Tinh Thần Sinh Viên (CSE122)
+   Khoa Công nghệ Thông tin — Trường Đại học Thủy Lợi (TLU)
+   ========================================================================== */
+
+/* Mobile viewport adjustments (< 640px) */
+@media (max-width: 639px) {
+  .drawer-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 20px 20px 0 0;
+  }
+  .modal-content {
+    width: 95% !important;
+    margin: 10px;
+    padding: 16px !important;
+  }
+  .interactive-card {
+    padding: 14px !important;
+  }
+  /* Floating Demo Toolbar mobile wrap */
+  #campusmind-demo-dock {
+    max-width: calc(100vw - 20px) !important;
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+  .table-responsive-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Tablet viewport adjustments (640px to 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .drawer-content {
+    max-width: 440px !important;
+  }
+  .modal-content {
+    max-width: 580px !important;
+  }
+}
+
+/* Desktop viewport (>= 1024px) */
+@media (min-width: 1024px) {
+  .drawer-content {
+    max-width: 480px !important;
+  }
+  .modal-content {
+    max-width: 640px !important;
+  }
+}
+
+/* Print styling */
+@media print {
+  #campusmind-demo-dock,
+  #crisis-banner,
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+}
