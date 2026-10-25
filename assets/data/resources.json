@@ -1,0 +1,95 @@
+[
+  {
+    "id": "RES-01",
+    "title": "Kỹ thuật thở 4-7-8: Xoa dịu cơn hoảng loạn tức thì",
+    "category": "anxiety",
+    "categoryName": "Lo âu & Căng thẳng",
+    "readTime": "4 phút đọc · Bài tập 5 phút",
+    "format": "interactive",
+    "formatDisplay": "Bài tập tương tác",
+    "author": "TS. Nguyễn Minh Hà",
+    "views": 1240,
+    "description": "Phương pháp điều hòa thần kinh giao cảm dựa trên bằng chứng khoa học, giúp hạ nhịp tim và giảm cảm giác bồn chồn trong vòng 120 giây.",
+    "badgeAi": "✦ AI-2 Đề xuất hàng đầu",
+    "steps": [
+      "Ngồi thẳng lưng, đặt đầu lưỡi chạm vào vòm họng ngay sau răng cửa trên.",
+      "Thở ra hoàn toàn bằng miệng tạo thành tiếng thở dài nhẹ.",
+      "Hít vào thật êm qua mũi đếm thầm từ 1 đến 4.",
+      "Giữ hơi thở lại trong vòng 7 giây.",
+      "Thở ra từ từ qua miệng trong vòng 8 giây.",
+      "Lặp lại chu kỳ trên đủ 4 lần."
+    ]
+  },
+  {
+    "id": "RES-02",
+    "title": "Kỹ thuật Neo 5-4-3-2-1 kích hoạt ngũ quan",
+    "category": "mindfulness",
+    "categoryName": "Chánh niệm & Thư giãn",
+    "readTime": "5 phút đọc · Thực hành tại chỗ",
+    "format": "article",
+    "formatDisplay": "Cẩm nang thực hành",
+    "author": "ThS. Lê Hoàng Long",
+    "views": 980,
+    "description": "Kỹ thuật định tâm hiệu quả nhất khi tâm trí bị cuốn vào những viễn cảnh tiêu cực hoặc lo sợ về kết quả thi cử tương lai.",
+    "badgeAi": "✦ Bài tập phổ biến",
+    "steps": [
+      "5 thứ bạn có thể nhìn thấy xung quanh lúc này.",
+      "4 thứ bạn có thể chạm vào (áo, bàn, mặt ghế...).",
+      "3 âm thanh bạn nghe thấy trong phòng.",
+      "2 mùi hương bạn ngửi thấy.",
+      "1 vị bạn cảm nhận trong miệng."
+    ]
+  },
+  {
+    "id": "RES-03",
+    "title": "Vệ sinh giấc ngủ: 7 thói quen cứu cánh mùa ôn thi",
+    "category": "sleep",
+    "categoryName": "Giấc ngủ",
+    "readTime": "6 phút đọc",
+    "format": "article",
+    "formatDisplay": "Bài viết chuyên môn",
+    "author": "TS. Nguyễn Minh Hà",
+    "views": 820,
+    "description": "Nguyên tắc cắt ánh sáng xanh sau 23h, cách điều chỉnh nhiệt độ phòng và mẹo viết nhật ký lo âu trước khi đặt lưng xuống giường.",
+    "badgeAi": null
+  },
+  {
+    "id": "RES-04",
+    "title": "Vượt qua hiện tượng Kẻ giả mạo (Imposter Syndrome)",
+    "category": "study",
+    "categoryName": "Học tập & Tự tin",
+    "readTime": "7 phút đọc",
+    "format": "article",
+    "formatDisplay": "Tâm lý học đường",
+    "author": "ThS. Đỗ Thu Thảo",
+    "views": 1450,
+    "description": "Dành cho sinh viên luôn nghĩ mình chỉ may mắn đạt điểm cao và sợ hãi một ngày người khác phát hiện mình kém cỏi.",
+    "badgeAi": "✦ Đọc nhiều nhất"
+  },
+  {
+    "id": "RES-05",
+    "title": "Audio thư giãn: Quét toàn thân giải phóng căng thẳng",
+    "category": "mindfulness",
+    "categoryName": "Chánh niệm & Thư giãn",
+    "readTime": "12 phút audio",
+    "format": "audio",
+    "formatDisplay": "File âm thanh hướng dẫn",
+    "author": "ThS. Lê Hoàng Long",
+    "views": 670,
+    "description": "Bản ghi âm giọng nói êm dịu kết hợp tiếng mưa rơi nhẹ, dẫn dắt từng vùng cơ thể thả lỏng từ đỉnh đầu đến gót chân.",
+    "badgeAi": null
+  },
+  {
+    "id": "RES-06",
+    "title": "Thiết lập ranh giới khi làm bài tập nhóm (Teamwork Healthy)",
+    "category": "relationship",
+    "categoryName": "Mối quan hệ",
+    "readTime": "5 phút đọc",
+    "format": "article",
+    "formatDisplay": "Kỹ năng xã hội",
+    "author": "ThS. Đỗ Thu Thảo",
+    "views": 1120,
+    "description": "Cách từ chối gánh việc thay bạn lười biếng mà không gây vỡ trận quan hệ, và kỹ thuật phản hồi đóng góp mang tính xây dựng.",
+    "badgeAi": null
+  }
+]
