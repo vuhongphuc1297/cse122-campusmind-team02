@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Viện Tài Nguyên & AI-2 Recommender | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .breath-circle {
+      transition: all 4s ease-in-out;
+    }
+    .breath-circle.inhale {
+      transform: scale(1.35);
+      background-color: #DCEAE3;
+      border-color: #2F7A66;
+    }
+    .breath-circle.hold {
+      transform: scale(1.35);
+      background-color: #FEF7EA;
+      border-color: #D79B34;
+    }
+    .breath-circle.exhale {
+      transform: scale(1);
+      background-color: #FFFFFF;
+      border-color: #E4DDD4;
+    }
+  </style>
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 08) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-8">
+
+    <!-- Header Intro -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-xs font-bold text-sage">
+          <span>THƯ VIỆN BÀI TẬP & SELF-HELP</span>
+          <span>·</span>
+          <span>SLIDE 04</span>
+        </div>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Thư viện tài nguyên tự chăm sóc tinh thần</h1>
+        <p class="text-xs sm:text-sm text-ink/70">Tổng hợp các bài tập hít thở, kỹ thuật định tâm và cẩm nang khoa học giúp sinh viên TLU giải tỏa căng thẳng</p>
+      </div>
+
+      <!-- Quick AI Recommendation trigger -->
+      <button onclick="triggerAiRecommendation()" class="btn-amber text-xs shadow-sm self-start md:self-auto">
+        <span class="text-ink font-bold">✦</span>
+        <span>AI-2 Gợi ý bài tập cho tôi</span>
+      </button>
+    </div>
+
+    <!-- AI-2 Smart Recommendation Notice Box -->
+    <div id="ai2-recommendation-box" class="hidden bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5 transition-all">
+      <div class="flex items-start justify-between gap-3">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 badge-ai">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>✦ AI-2 Resource Recommender</span>
+          </div>
+          <p id="ai2-reason-text" class="text-xs text-ink/80 font-medium pt-1"></p>
+        </div>
+        <button onclick="document.getElementById('ai2-recommendation-box').classList.add('hidden')" class="text-ink/40 hover:text-ink">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- FEATURED INTERACTIVE CARD: KỸ THUẬT THỞ 4-7-8 -->
+    <section class="bg-white border border-card-border rounded-3xl p-6 sm:p-8 shadow-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Text details -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="badge-ai">✦ Bài tập tương tác tại chỗ</span>
+            <span class="badge-sage">Lo âu & Căng thẳng</span>
+          </div>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-ink">
+            Kỹ thuật thở 4-7-8: Xoa dịu cơn hoảng loạn tức thì
+          </h2>
+          <p class="text-xs text-ink/75 leading-relaxed">
+            Phương pháp kích hoạt thần kinh đối giao cảm giúp hạ nhịp tim, giải tỏa áp lực thi cử và làm dịu cơn lo âu bồn chồn chỉ sau 4 chu kỳ lặp lại.
+          </p>
+          <div class="grid grid-cols-3 gap-3 pt-2 text-center text-xs">
+            <div class="bg-paper rounded-xl p-2.5 border border-card-border">
+              <span class="font-bold text-sage-deep block">4 Giây</span>
+              <span class="text-[10px] text-ink/60">Hít vào bằng mũi</span>
+            </div>
+            <div class="bg-paper rounded-xl p-2.5 border border-card-border">
+              <span class="font-bold text-amber-ai block">7 Giây</span>
+              <span class="text-[10px] text-ink/60">Giữ hơi thở lại</span>
+            </div>
+            <div class="bg-paper rounded-xl p-2.5 border border-card-border">
+              <span class="font-bold text-sky-info block">8 Giây</span>
+              <span class="text-[10px] text-ink/60">Thở chậm qua miệng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Breathing Widget -->
+        <div class="lg:col-span-5 bg-paper rounded-2xl p-6 border border-card-border flex flex-col items-center justify-center text-center space-y-4">
+          <div id="breath-box" class="breath-circle w-36 h-36 rounded-full border-2 border-sage bg-white flex flex-col items-center justify-center shadow-md">
+            <span id="breath-status" class="font-serif font-bold text-sm text-sage-deep">Sẵn sàng</span>
+            <span id="breath-timer" class="text-xs font-semibold text-ink/60">4-7-8</span>
+          </div>
+          <div class="space-y-1">
+            <button id="breath-btn" onclick="toggleBreathingExercise()" class="btn-primary text-xs !py-2 !px-5 shadow-sm">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i>
+              <span>Bắt đầu bài tập thở</span>
+            </button>
+            <p class="text-[10px] text-ink/50">Thực hành 4 chu kỳ (khoảng 2 phút)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & CATEGORY FILTER -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div class="relative flex-1 max-w-md">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-ink/40"></i>
+          <input type="text" id="resource-search" oninput="filterResources()" placeholder="Tìm kiếm tài nguyên, bài tập, tác giả..."
+                 class="w-full bg-white border border-card-border rounded-xl pl-10 pr-4 py-2.5 text-xs text-ink focus:outline-none focus:border-sage shadow-sm">
+        </div>
+        <div class="text-xs text-ink/60 font-medium" id="resources-count">Đang hiển thị 6 tài nguyên</div>
+      </div>
+
+      <!-- Categories -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <button onclick="setResFilter('all', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-sage-tint text-sage-deep border-sage">
+          Tất cả tài nguyên
+        </button>
+        <button onclick="setResFilter('anxiety', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Lo âu & Căng thẳng
+        </button>
+        <button onclick="setResFilter('mindfulness', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Chánh niệm & Thư giãn
+        </button>
+        <button onclick="setResFilter('sleep', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Vệ sinh giấc ngủ
+        </button>
+        <button onclick="setResFilter('study', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Học tập & Tự tin
+        </button>
+        <button onclick="setResFilter('relationship', this)" class="res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all">
+          Mối quan hệ
+        </button>
+      </div>
+    </section>
+
+    <!-- RESOURCES GRID -->
+    <section>
+      <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL READ RESOURCE DETAIL -->
+  <div id="resource-modal" class="modal-backdrop hidden" onclick="if(event.target === this) closeResourceModal()">
+    <div class="modal-content relative p-6 sm:p-8">
+      <button onclick="closeResourceModal()" class="absolute right-5 top-5 text-ink/40 hover:text-ink">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="resource-modal-body" class="space-y-4">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/ai-engine.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    let currentResFilter = 'all';
+    let breathInterval = null;
+    let isBreathing = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('resources');
+      CampusCommon.renderFooter();
+      renderResourcesList();
+    });
+
+    function renderResourcesList() {
+      const container = document.getElementById('resources-grid');
+      const all = CampusData.getResources();
+      const query = (document.getElementById('resource-search')?.value || '').toLowerCase().trim();
+
+      const filtered = all.filter(r => {
+        const matchCategory = currentResFilter === 'all' || r.category === currentResFilter;
+        const matchQuery = !query ||
+          r.title.toLowerCase().includes(query) ||
+          r.description.toLowerCase().includes(query) ||
+          r.author.toLowerCase().includes(query);
+        return matchCategory && matchQuery;
+      });
+
+      const countText = document.getElementById('resources-count');
+      if (countText) countText.textContent = `Đang hiển thị ${filtered.length} tài nguyên`;
+
+      container.innerHTML = filtered.map(item => `
+        <div class="interactive-card p-5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <span class="badge-sage">${item.categoryName}</span>
+              ${item.badgeAi ? `<span class="badge-ai">${item.badgeAi}</span>` : `<span class="text-[11px] text-ink/50">${item.readTime}</span>`}
+            </div>
+            <h3 class="font-serif font-bold text-base text-ink line-clamp-2">${item.title}</h3>
+            <p class="text-xs text-ink/70 line-clamp-3 leading-relaxed">${item.description}</p>
+            <div class="pt-2 border-t border-card-border/60 text-[11px] text-ink/60 flex items-center justify-between">
+              <span>Biên soạn: <b>${item.author}</b></span>
+              <span>👁️ ${item.views} lượt xem</span>
+            </div>
+          </div>
+          <div class="pt-4 mt-3 border-t border-card-border/60 flex items-center justify-between">
+            <span class="text-[11px] text-sage font-semibold">${item.formatDisplay}</span>
+            <button onclick="viewResourceDetail('${item.id}')" class="btn-secondary text-xs !py-1.5 !px-3">
+              <span>Xem chi tiết</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function setResFilter(cat, btn) {
+      currentResFilter = cat;
+      document.querySelectorAll('.res-chip').forEach(c => {
+        c.className = 'res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border border-card-border bg-white text-ink/80 hover:bg-paper transition-all';
+      });
+      btn.className = 'res-chip px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-sage-tint text-sage-deep border-sage';
+      renderResourcesList();
+    }
+
+    function filterResources() {
+      renderResourcesList();
+    }
+
+    function viewResourceDetail(resId) {
+      const all = CampusData.getResources();
+      const item = all.find(r => r.id === resId);
+      if (!item) return;
+
+      const body = document.getElementById('resource-modal-body');
+      body.innerHTML = `
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="badge-sage">${item.categoryName}</span>
+            <span class="text-xs text-ink/60">${item.readTime}</span>
+          </div>
+          <h2 class="font-serif text-2xl font-bold text-ink">${item.title}</h2>
+          <p class="text-xs text-ink/75 leading-relaxed">${item.description}</p>
+
+          ${item.steps ? `
+            <div class="bg-paper rounded-2xl p-4 border border-card-border space-y-2 mt-4">
+              <h4 class="font-bold text-xs text-ink">Các bước thực hành chuẩn khoa học:</h4>
+              <ol class="space-y-2 text-xs text-ink/80 pl-4 list-decimal">
+                ${item.steps.map(s => `<li>${s}</li>`).join('')}
+              </ol>
+            </div>
+          ` : ''}
+
+          <div class="pt-4 border-t border-card-border flex items-center justify-between text-xs text-ink/60">
+            <span>Tác giả: <b>${item.author}</b></span>
+            <button onclick="CampusCommon.showToast('Đã lưu bài viết vào mục yêu thích!', 'success'); closeResourceModal();" class="btn-primary text-xs !py-1.5">
+              <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+              <span>Lưu tài nguyên</span>
+            </button>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+      document.getElementById('resource-modal').classList.remove('hidden');
+    }
+
+    function closeResourceModal() {
+      document.getElementById('resource-modal').classList.add('hidden');
+    }
+
+    // AI-2 Recommendation Trigger
+    function triggerAiRecommendation() {
+      const rec = CampusAI.recommendResources('lo âu');
+      const box = document.getElementById('ai2-recommendation-box');
+      const text = document.getElementById('ai2-reason-text');
+      box.classList.remove('hidden');
+      text.textContent = rec.reason;
+      CampusCommon.showToast('AI-2 đã đề xuất các bài tập thư giãn phù hợp!', 'info');
+    }
+
+    // Interactive 4-7-8 Breathing Timer
+    function toggleBreathingExercise() {
+      const box = document.getElementById('breath-box');
+      const status = document.getElementById('breath-status');
+      const timer = document.getElementById('breath-timer');
+      const btn = document.getElementById('breath-btn');
+
+      if (isBreathing) {
+        clearInterval(breathInterval);
+        isBreathing = false;
+        box.className = 'breath-circle w-36 h-36 rounded-full border-2 border-sage bg-white flex flex-col items-center justify-center shadow-md';
+        status.textContent = 'Sẵn sàng';
+        timer.textContent = '4-7-8';
+        btn.innerHTML = '<i data-lucide="play" class="w-3.5 h-3.5"></i><span>Bắt đầu bài tập thở</span>';
+        lucide.createIcons();
+        return;
+      }
+
+      isBreathing = true;
+      btn.innerHTML = '<i data-lucide="square" class="w-3.5 h-3.5"></i><span>Dừng lại</span>';
+      lucide.createIcons();
+
+      let phase = 'inhale';
+      let count = 4;
+
+      function updatePhase() {
+        if (phase === 'inhale') {
+          box.className = 'breath-circle inhale w-36 h-36 rounded-full border-2 flex flex-col items-center justify-center shadow-md';
+          status.textContent = 'Hít vào sâu';
+          timer.textContent = `${count}s`;
+          count--;
+          if (count < 0) {
+            phase = 'hold';
+            count = 7;
+          }
+        } else if (phase === 'hold') {
+          box.className = 'breath-circle hold w-36 h-36 rounded-full border-2 flex flex-col items-center justify-center shadow-md';
+          status.textContent = 'Giữ hơi thở';
+          timer.textContent = `${count}s`;
+          count--;
+          if (count < 0) {
+            phase = 'exhale';
+            count = 8;
+          }
+        } else if (phase === 'exhale') {
+          box.className = 'breath-circle exhale w-36 h-36 rounded-full border-2 flex flex-col items-center justify-center shadow-md';
+          status.textContent = 'Thở ra chậm';
+          timer.textContent = `${count}s`;
+          count--;
+          if (count < 0) {
+            phase = 'inhale';
+            count = 4;
+          }
+        }
+      }
+
+      updatePhase();
+      breathInterval = setInterval(updatePhase, 1000);
+    }
+  </script>
+</body>
+</html>
