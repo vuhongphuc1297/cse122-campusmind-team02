@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Điều Khiển Sinh Viên | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 10) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-8">
+
+    <!-- Welcome Greeting & Quick Booking CTA -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="badge-role bg-sage-tint text-sage-deep">🎓 Sinh viên K64 · CNTT</span>
+          <span class="text-xs text-ink/60">Mã SV: 2551060661</span>
+        </div>
+        <h1 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Xin chào, Vũ Hồng Phúc</h1>
+        <p class="text-xs sm:text-sm text-ink/70">Chào mừng bạn quay lại CampusMind. Hãy cùng theo dõi và chăm sóc năng lượng tinh thần hôm nay nhé.</p>
+      </div>
+
+      <a href="student-booking.html" class="btn-primary text-xs shadow-md self-start sm:self-auto">
+        <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+        <span>Đăng ký ca tư vấn mới</span>
+      </a>
+    </div>
+
+    <!-- 4 PERSONAL KPIS METRICS CARDS -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- KPI 1 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+          <i data-lucide="calendar-clock" class="w-5 h-5 text-amber-ai"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Lịch hẹn sắp tới</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink leading-tight">1 ca</span>
+          <span class="text-[10px] text-amber-700 font-semibold block">Hôm nay 14:00</span>
+        </div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center shrink-0">
+          <i data-lucide="check-circle-2" class="w-5 h-5 text-sage"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Buổi đã tham gia</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink leading-tight">3 ca</span>
+          <span class="text-[10px] text-sage font-semibold block">Kỳ I (2026-2027)</span>
+        </div>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center shrink-0">
+          <i data-lucide="bookmark" class="w-5 h-5 text-sky-info"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Tài nguyên đã lưu</span>
+          <span class="font-serif font-bold text-xl sm:text-2xl text-ink leading-tight">4 bài</span>
+          <span class="text-[10px] text-sky-700 font-semibold block">Kỹ thuật thở 4-7-8</span>
+        </div>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-card-border shadow-sm flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <i data-lucide="smile" class="w-5 h-5 text-emerald-700"></i>
+        </div>
+        <div>
+          <span class="text-[11px] text-ink/60 block font-medium">Chỉ số tâm trạng</span>
+          <span id="mood-kpi-display" class="font-serif font-bold text-base sm:text-lg text-ink leading-tight">Bình ổn</span>
+          <span class="text-[10px] text-emerald-700 font-semibold block">Đã ghi nhận hôm nay</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING APPOINTMENT BANNER (FEATURED) -->
+    <section class="bg-gradient-to-r from-emerald-50 via-teal-50/40 to-white rounded-3xl p-6 sm:p-8 border border-emerald-200/80 shadow-sm relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+        <div class="space-y-3 max-w-xl">
+          <div class="flex items-center gap-2">
+            <span class="status-pill status-confirmed">
+              <span class="status-dot"></span>
+              <span>Sắp diễn ra chiều nay</span>
+            </span>
+            <span class="text-xs text-ink/60 font-semibold">Mã ca: #APT-1042</span>
+          </div>
+
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-sage-deep">
+            Tư vấn tâm lý cá nhân 1-1 với TS. Nguyễn Minh Hà
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-ink/80 pt-1">
+            <div class="flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-sage"></i>
+              <span><b>14:00 - 14:45</b> · Chiều nay (23/10/2026)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-sage"></i>
+              <span>Phòng P.204 Nhà A1 (Cơ sở Tây Sơn)</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-ink/70 bg-white/70 p-2.5 rounded-xl border border-card-border/60">
+            <b>Lý do tham vấn:</b> "Áp lực thi cử và mâu thuẫn nhóm làm đồ án tốt nghiệp, mất ngủ 3 đêm liên tiếp."
+          </p>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0">
+          <a href="student-appointments.html?aptId=APT-1042" class="btn-primary text-xs shadow-sm text-center">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Xem chi tiết lịch hẹn & Drawer</span>
+          </a>
+          <a href="student-appointments.html?action=reschedule" class="btn-secondary text-xs text-center">
+            <i data-lucide="calendar-range" class="w-3.5 h-3.5"></i>
+            <span>Đổi lịch / Hủy ca an toàn</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 COLUMNS: DAILY MOOD TRACKER & AI-2 PERSONALIZED RESOURCES -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT: MOOD TRACKER (Bộ theo dõi cảm xúc hàng ngày) -->
+      <section class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-7 border border-card-border shadow-sm space-y-4">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-lg font-bold text-ink">Bạn cảm thấy thế nào hôm nay?</h3>
+            <span class="text-[11px] text-ink/50">Mood Tracker</span>
+          </div>
+          <p class="text-xs text-ink/70">Chọn mức năng lượng để nhận gợi ý điều hòa cảm xúc tức thì</p>
+        </div>
+
+        <!-- 5 Mood Icons -->
+        <div class="grid grid-cols-5 gap-2 text-center pt-2">
+          <button onclick="selectMood('happy', 'Rất tích cực', 'Thật tuyệt vời! Hãy duy trì năng lượng này và lan tỏa tới bạn bè.')"
+                  class="mood-btn p-3 rounded-2xl border border-card-border hover:border-sage hover:bg-sage-tint/30 transition-all flex flex-col items-center gap-1.5">
+            <span class="text-2xl">😊</span>
+            <span class="text-[10px] font-semibold text-ink/80">Tích cực</span>
+          </button>
+          <button onclick="selectMood('calm', 'Bình ổn', 'Tâm trạng thăng bằng là nền tảng tốt nhất để bạn tập trung học tập.')"
+                  class="mood-btn p-3 rounded-2xl border-2 border-sage bg-sage-tint/40 transition-all flex flex-col items-center gap-1.5 shadow-sm">
+            <span class="text-2xl">😌</span>
+            <span class="text-[10px] font-bold text-sage-deep">Bình ổn</span>
+          </button>
+          <button onclick="selectMood('anxious', 'Lo âu nhẹ', 'Hãy thử bài tập thở 4-7-8 trong 3 phút để làm chậm nhịp tim.')"
+                  class="mood-btn p-3 rounded-2xl border border-card-border hover:border-amber-ai hover:bg-amber-50 transition-all flex flex-col items-center gap-1.5">
+            <span class="text-2xl">😟</span>
+            <span class="text-[10px] font-semibold text-ink/80">Lo âu</span>
+          </button>
+          <button onclick="selectMood('stressed', 'Áp lực cao', 'Đừng ngần ngại trò chuyện với chuyên viên TS. Minh Hà chiều nay.')"
+                  class="mood-btn p-3 rounded-2xl border border-card-border hover:border-clay-alert hover:bg-rose-50 transition-all flex flex-col items-center gap-1.5">
+            <span class="text-2xl">😫</span>
+            <span class="text-[10px] font-semibold text-ink/80">Áp lực</span>
+          </button>
+          <button onclick="selectMood('exhausted', 'Kiệt sức', 'Cơ thể bạn đang báo động. Hãy ngủ đủ 8 tiếng tối nay và giảm bớt đồ án.')"
+                  class="mood-btn p-3 rounded-2xl border border-card-border hover:border-clay-alert hover:bg-rose-50 transition-all flex flex-col items-center gap-1.5">
+            <span class="text-2xl">😴</span>
+            <span class="text-[10px] font-semibold text-ink/80">Kiệt sức</span>
+          </button>
+        </div>
+
+        <div id="mood-feedback-box" class="p-3 bg-paper rounded-xl border border-card-border text-xs text-ink/80 flex items-start gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-ai shrink-0 mt-0.5"></i>
+          <span id="mood-feedback-text">Tâm trạng thăng bằng là nền tảng tốt nhất để bạn tập trung học tập.</span>
+        </div>
+      </section>
+
+      <!-- RIGHT: AI-2 RECOMMENDED FOR AN (Tài nguyên cá nhân hóa) -->
+      <section class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-7 border border-card-border shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-1.5">
+              <span class="badge-ai">✦ AI-2 Cá nhân hóa</span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-ink">Gợi ý dành riêng cho bạn</h3>
+          </div>
+          <a href="visitor-resource-library.html" class="text-xs font-bold text-sage hover:underline">Xem thêm →</a>
+        </div>
+
+        <p class="text-[11px] text-ink/60">
+          Đề xuất dựa trên ca hẹn chiều nay về chủ đề <b>"Áp lực đồ án thi cử"</b>:
+        </p>
+
+        <div class="space-y-3">
+          <!-- Item 1 -->
+          <div class="p-3.5 bg-paper rounded-2xl border border-card-border hover:border-sage transition-all flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center shrink-0">
+                <i data-lucide="wind" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-ink">Kỹ thuật thở 4-7-8 xoa dịu lo âu</h4>
+                <p class="text-[10px] text-ink/60">Bài tập tương tác 5 phút trước khi vào phòng tư vấn</p>
+              </div>
+            </div>
+            <a href="visitor-resource-library.html" class="btn-secondary text-[11px] !py-1 !px-2.5">Thực hành</a>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="p-3.5 bg-paper rounded-2xl border border-card-border hover:border-sage transition-all flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center shrink-0">
+                <i data-lucide="moon" class="w-4 h-4 text-sky-info"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-ink">7 thói quen vệ sinh giấc ngủ mùa thi</h4>
+                <p class="text-[10px] text-ink/60">Hạn chế ánh sáng xanh sau 23:00</p>
+              </div>
+            </div>
+            <a href="visitor-resource-library.html" class="btn-secondary text-[11px] !py-1 !px-2.5">Đọc bài</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Guard RBAC
+      CampusAuth.enforceGuard();
+
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('dashboard');
+      CampusCommon.renderFooter();
+    });
+
+    function selectMood(type, title, feedback) {
+      document.querySelectorAll('.mood-btn').forEach(b => {
+        b.className = 'mood-btn p-3 rounded-2xl border border-card-border hover:border-sage hover:bg-sage-tint/30 transition-all flex flex-col items-center gap-1.5';
+      });
+      event.currentTarget.className = 'mood-btn p-3 rounded-2xl border-2 border-sage bg-sage-tint/40 transition-all flex flex-col items-center gap-1.5 shadow-sm';
+
+      document.getElementById('mood-kpi-display').textContent = title;
+      document.getElementById('mood-feedback-text').textContent = feedback;
+      CampusCommon.showToast(`Đã lưu tâm trạng: ${title}`, 'success');
+    }
+  </script>
+</body>
+</html>
