@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusMind — Nền Tảng Hỗ Trợ Sức Khỏe Tinh Thần Sinh Viên | Đại Học Thủy Lợi</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans">
+
+  <!-- Crisis Banner -->
+  <div id="crisis-banner"></div>
+
+  <!-- Header -->
+  <header id="campusmind-header" class="bg-white/95 backdrop-blur-md border-b border-card-border sticky top-0 z-40"></header>
+
+  <!-- Main Content (Matching Mockup 01) -->
+  <main class="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 flex-1 space-y-12">
+
+    <!-- HERO SECTION -->
+    <section class="bg-white rounded-3xl p-8 sm:p-12 border border-card-border shadow-sm relative overflow-hidden">
+      <!-- Decorative background glow -->
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-sage-tint/40 filter blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-2xl space-y-5 relative z-10">
+        <!-- University Badge -->
+        <div class="inline-flex items-center gap-2 bg-sage-tint text-sage-deep px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+          <span>Dành cho sinh viên Trường Đại học Thủy Lợi (TLU)</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="font-serif text-3xl sm:text-5xl font-bold text-ink leading-[1.15] tracking-tight">
+          Bạn không phải<br>đối mặt một mình.
+        </h1>
+
+        <!-- Hero Subtitle -->
+        <p class="text-ink/80 text-sm sm:text-base leading-relaxed font-normal">
+          CampusMind kết nối sinh viên với mạng lưới chuyên viên tâm lý học đường, thư viện bài tập tự điều hòa cảm xúc và hệ thống phân luồng thông minh hỗ trợ 24/7.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="pages/student-booking.html" class="btn-primary text-sm shadow-md">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Bắt đầu đặt lịch 1-1</span>
+          </a>
+          <a href="pages/visitor-service-directory.html" class="btn-secondary text-sm">
+            <span class="text-amber-ai font-bold">✦</span>
+            <span>Khám phá 12 dịch vụ & AI</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 LỐI VÀO DỊCH VỤ TRỌNG TÂM (4 Core Entries) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-ink">4 Lối vào dịch vụ hỗ trợ</h2>
+          <p class="text-xs text-ink/70">Lựa chọn cách tiếp cận phù hợp nhất với trạng thái cảm xúc của bạn</p>
+        </div>
+        <a href="pages/visitor-service-directory.html" class="text-xs font-bold text-sage hover:underline flex items-center gap-1">
+          <span>Xem tất cả</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Entry 1 -->
+        <div class="interactive-card p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-sage-tint text-sage-deep flex items-center justify-center">
+              <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif font-bold text-base text-ink">Tư vấn cá nhân 1-1</h3>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Buổi trò chuyện bảo mật, riêng tư cùng chuyên gia tâm lý tại phòng P.204 Nhà A1 để gỡ rối áp lực thi cử và cảm xúc.
+            </p>
+          </div>
+          <div class="pt-5 border-t border-card-border/60 mt-4">
+            <a href="pages/student-booking.html" class="text-xs font-bold text-sage hover:text-sage-deep flex items-center gap-1">
+              <span>Đặt lịch ngay</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Entry 2 (AI-1) -->
+        <div class="interactive-card p-6 flex flex-col justify-between border-amber-200/80 bg-gradient-to-b from-amber-50/40 to-white">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
+              <i data-lucide="compass" class="w-5 h-5 text-amber-ai"></i>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="badge-ai">✦ AI-1 Navigator</span>
+            </div>
+            <h3 class="font-serif font-bold text-base text-ink">Trắc nghiệm định hướng</h3>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Chưa biết bắt đầu từ đâu? 4 câu hỏi định hướng nhanh giúp AI đề xuất dịch vụ phù hợp nhất cho bạn.
+            </p>
+          </div>
+          <div class="pt-5 border-t border-amber-200/60 mt-4">
+            <a href="pages/visitor-service-directory.html?openQuiz=true" class="text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1">
+              <span>Làm trắc nghiệm (45s)</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Entry 3 (AI-2) -->
+        <div class="interactive-card p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center">
+              <i data-lucide="headphones" class="w-5 h-5 text-sky-info"></i>
+            </div>
+            <h3 class="font-serif font-bold text-base text-ink">Thư viện Self-help</h3>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Chuỗi bài tập thở 4-7-8, kỹ thuật neo ngũ quan và audio thư giãn giúp bạn tự thực hành giảm lo âu tại chỗ.
+            </p>
+          </div>
+          <div class="pt-5 border-t border-card-border/60 mt-4">
+            <a href="pages/visitor-resource-library.html" class="text-xs font-bold text-sage hover:text-sage-deep flex items-center gap-1">
+              <span>Xem tài nguyên</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Entry 4 -->
+        <div class="interactive-card p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="user-check" class="w-5 h-5 text-sage"></i>
+            </div>
+            <h3 class="font-serif font-bold text-base text-ink">Đội ngũ Chuyên gia</h3>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Thông tin minh bạch về chứng chỉ, quá trình công tác và lịch trực tuần của các chuyên viên tâm lý trường TLU.
+            </p>
+          </div>
+          <div class="pt-5 border-t border-card-border/60 mt-4">
+            <a href="pages/visitor-counselor-detail.html" class="text-xs font-bold text-sage hover:text-sage-deep flex items-center gap-1">
+              <span>Xem lịch trực</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 CAM KẾT VẬN HÀNH & NGUYÊN TẮC AN TOÀN -->
+    <section class="bg-white rounded-3xl p-8 border border-card-border">
+      <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+        <h2 class="font-serif text-xl sm:text-2xl font-bold text-ink">Cam kết an toàn & Đạo đức hỗ trợ</h2>
+        <p class="text-xs text-ink/70">Mọi quy trình được thiết kế nhằm bảo vệ tối đa sự riêng tư và trải nghiệm của sinh viên</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-start gap-3.5">
+          <div class="w-9 h-9 rounded-xl bg-sage-tint text-sage-deep flex items-center justify-center shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-ink mb-1">100% Ẩn danh & Bảo mật</h4>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Thông tin cá nhân, lý do tham vấn và biên bản ghi chép được mã hóa nghiêm ngặt. Sinh viên có thể chọn chế độ ẩn danh khi đăng ký.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+            <i data-lucide="sparkles" class="w-5 h-5 text-amber-ai"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-ink mb-1">Không chẩn đoán y khoa</h4>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              AI và chuyên viên chỉ thực hiện điều hướng, tham vấn tâm lý học đường. Không gắn nhãn bệnh lý tâm thần hoặc kê đơn thuốc.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center shrink-0">
+            <i data-lucide="phone-call" class="w-5 h-5 text-clay-alert"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-ink mb-1">Phản ứng nhanh khi khẩn cấp</h4>
+            <p class="text-xs text-ink/70 leading-relaxed">
+              Tự động kết nối đường dây nóng và đội ngũ y tế trường ngay khi phát hiện sinh viên có dấu hiệu khủng hoảng tinh thần cấp tính.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="campusmind-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/modules/data.js"></script>
+  <script src="js/modules/auth.js"></script>
+  <script src="js/modules/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      CampusCommon.renderEmergencyBanner();
+      CampusCommon.renderHeader('home');
+      CampusCommon.renderFooter();
+    });
+  </script>
+</body>
+</html>
