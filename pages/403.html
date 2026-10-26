@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>403 — Không Đủ Quyền Truy Cập (RBAC) | CampusMind TLU</title>
+
+  <!-- Google Fonts: Fraunces & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#2F7A66',
+            'sage-deep': '#1C5344',
+            'amber-ai': '#D79B34',
+            'clay-alert': '#C4643F',
+            ink: '#16241D',
+            paper: '#F2EEE6',
+            'sage-tint': '#DCEAE3',
+            'sky-info': '#3B6E92',
+            'card-border': '#E4DDD4',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CampusMind Core Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col font-sans justify-between">
+
+  <!-- Header -->
+  <header class="py-4 px-6 max-w-6xl w-full mx-auto flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-sage-deep text-white flex items-center justify-center shadow-sm">
+        <i data-lucide="heart-handshake" class="w-4 h-4 text-emerald-300"></i>
+      </div>
+      <span class="font-serif font-bold text-base text-ink">CampusMind</span>
+    </a>
+    <a href="../index.html" class="text-xs font-semibold text-ink/70 hover:text-sage flex items-center gap-1">
+      <i data-lucide="home" class="w-3.5 h-3.5"></i>
+      <span>Về trang chủ</span>
+    </a>
+  </header>
+
+  <!-- Main Error Card -->
+  <main class="flex-1 flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-3xl p-8 border border-card-border shadow-xl text-center space-y-5">
+      
+      <div class="w-16 h-16 rounded-3xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-sm">
+        <i data-lucide="shield-alert" class="w-8 h-8 text-amber-ai"></i>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+          LỖI 403 · FORBIDDEN ACCESS
+        </span>
+        <h1 class="font-serif text-2xl font-bold text-ink">Khu vực giới hạn quyền truy cập</h1>
+        <p class="text-xs text-ink/70 leading-relaxed">
+          Tài khoản hiện tại của bạn không có quyền hạn truy cập trang này theo chính sách phân quyền vai trò (RBAC) của hệ thống CampusMind.
+        </p>
+      </div>
+
+      <!-- Quick Switch Role Helper -->
+      <div class="p-4 bg-paper rounded-2xl border border-card-border space-y-2 text-left">
+        <span class="text-[11px] font-bold text-ink block">Chuyển vai trò phù hợp để kiểm thử BTL:</span>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <button onclick="CampusAuth.switchRole('counselor', 'counselor-appointment-queue.html')" class="btn-secondary !py-1.5 text-xs text-sky-800 border-sky-200">
+            🧑‍⚕️ Sang Chuyên viên
+          </button>
+          <button onclick="CampusAuth.switchRole('admin', 'admin-dashboard.html')" class="btn-secondary !py-1.5 text-xs text-slate-900 border-slate-300">
+            🛡️ Sang Admin
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2 flex items-center justify-center gap-3">
+        <a href="../index.html" class="btn-primary text-xs !py-2 !px-5 shadow-sm">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Quay lại trang an toàn</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-4 text-center text-[11px] text-ink/50 border-t border-card-border/50">
+    CampusMind RBAC Security Shield · Trường Đại học Thủy Lợi
+  </footer>
+
+  <script src="../js/modules/data.js"></script>
+  <script src="../js/modules/auth.js"></script>
+  <script src="../js/modules/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
