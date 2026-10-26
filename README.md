@@ -308,7 +308,10 @@ Hệ thống có sẵn **Thanh công cụ Demo nổi (Floating Demo Dock)** ở 
 Theo đúng quy định tại [`docs/obs-evidence.md`](docs/obs-evidence.md), 100% video đều có webcam hiển thị rõ khuôn mặt sinh viên, thuyết minh thao tác nghiệp vụ, F12 Console/LocalStorage và giải thích code trong VS Code:
 
 Chu Hữu Đăng: https://www.youtube.com/playlist?list=PLNlHyTK2Id38
+
 Vũ Hồng Phúc: https://www.youtube.com/playlist?list=PLDlwkZyNE0Uk
+
+Nguyễn Thái Bảo: https://youtube.com/playlist?list=PLR__gNxW7it4&si=vKlC-CM3aaCAOEKA
 
 ---
 
