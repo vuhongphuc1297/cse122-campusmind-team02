@@ -6,6 +6,7 @@
 > **Nhóm thực hiện:** Nhóm 02 (3 sinh viên)  
 > **Quy chuẩn tuân thủ:** [CSE122 Hướng Dẫn Thực Hiện BTL](docs/project-proposal.md) (Phần 9 & Phụ lục E)  
 > **Cổng vào ứng dụng:** [`index.html`](index.html) · **Showcase 3 Viewports:** [`showcase.html`](showcase.html)
+> > **Đường dẫn triển khai (Live Deployment):** [https://vuhongphuc1297.github.io/cse122-campusmind-team02/](https://vuhongphuc1297.github.io/cse122-campusmind-team02/)
 
 ---
 
