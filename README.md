@@ -3,7 +3,7 @@
 > **Học phần:** Phát triển ứng dụng Web cơ bản — CSE122  
 > **Đề tài:** BTL-02 · Lĩnh vực: Sức khỏe tinh thần / Wellbeing học đường  
 > **Khoa Công nghệ Thông tin — Trường Đại học Thủy Lợi (TLU)**  
-> **Nhóm thực hiện:** Nhóm 02 (3 sinh viên)  
+> **Nhóm thực hiện:** Nhóm 02 (3 sinh viên) ** Chu Hữu Đăng ** Vũ Hồng Phúc ** Nguyễn Thái Bảo
 > **Quy chuẩn tuân thủ:** [CSE122 Hướng Dẫn Thực Hiện BTL](docs/project-proposal.md) (Phần 9 & Phụ lục E)  
 > **Cổng vào ứng dụng:** [`index.html`](index.html) · **Showcase 3 Viewports:** [`showcase.html`](showcase.html)
 > > **Đường dẫn triển khai (Live Deployment):** [https://vuhongphuc1297.github.io/cse122-campusmind-team02/](https://vuhongphuc1297.github.io/cse122-campusmind-team02/)
